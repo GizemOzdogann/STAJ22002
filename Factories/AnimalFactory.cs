@@ -19,7 +19,6 @@ namespace ManagerApp.Factories
                 "Sheep" => new SheepModel(),
                 _ => throw new ArgumentException("Invalid animal type", nameof(animalType))
             };
-            
         }
 
         public static Animal GetFactory(string animalType) 
@@ -33,5 +32,4 @@ namespace ManagerApp.Factories
             };
         }
     }
-
 }

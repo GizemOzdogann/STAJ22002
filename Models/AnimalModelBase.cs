@@ -22,7 +22,6 @@ namespace FarmManager.Models
         public ProgressBar LifeBar { get; set; } = new ProgressBar();
         public int lifeTick {get; set; }
         public int productTick { get; set; }
-
         public abstract Image LoadImage();
     }
 }

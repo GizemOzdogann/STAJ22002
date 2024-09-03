@@ -9,7 +9,6 @@ using FarmManager.UI;
 
 namespace FarmManager.Models
 {
-    
     internal class CowModel : AnimalModelBase
     {
         public CowModel() 

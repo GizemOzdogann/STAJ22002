@@ -15,7 +15,6 @@ namespace FarmManager
     
     public partial class MainForm : Form
     {
-        //private static int _Id = 1;
         private readonly IAnimalService animalService;
         public MainForm(IAnimalService animalService)
         {
@@ -23,7 +22,6 @@ namespace FarmManager
             InitializeTimer();
             progressTimer.Tick += progressTimer_Tick;
             this.animalService = animalService;
-            //progressTimer.Tick += progressTimer_Tick;
         }
 
         private void AddButton_Click(object sender, EventArgs e)
@@ -39,10 +37,9 @@ namespace FarmManager
                 {
                     IAnimal animal = AnimalFactory.GetFactory(Animal);
                     animalService.AddAnimal(animal);
-                    var animalModel = AnimalFactory.GetModalFactory(Animal);
+                    AnimalModelBase animalModel = AnimalFactory.GetModalFactory(Animal);
                     animalModel.productTick = animal.productTick;
                     animalModel.lifeTick = animal.lifeTick;
-                    
                     ListItem listItem = new(animalModel) { Size = new(175, 249) };
                     BindData(animalModel, listItem);
                     flowLayoutPanel1.Controls.Add(listItem);
@@ -85,18 +82,23 @@ namespace FarmManager
             GenderPickComboBox.SelectedIndex = -1;
         }
 
-
         //LifeTick 
 
         private void progressTimer_Tick(object? sender, EventArgs e)
         {
             foreach (ListItem item in flowLayoutPanel1.Controls)
             {
+                // Decrease LifeBar based on lifeTick value, ensuring it doesn't drop below 0
                 if (item.LifeBar.Value > 0)
-                    item.LifeBar.Value-= 0;
+                {
+                    item.LifeBar.Value = Math.Max(0, item.LifeBar.Value - item.AnimalModel.lifeTick);
+                }
 
+                // Increase ProductionBar based on productTick value, ensuring it doesn't exceed the maximum
                 if (item.ProductionBar.Value < item.ProductionBar.Maximum)
-                    item.ProductionBar.Value++;
+                {
+                    item.ProductionBar.Value = Math.Min(item.ProductionBar.Maximum, item.ProductionBar.Value + item.AnimalModel.productTick);
+                }
             }
         }
         private void MainForm_Load(object sender, EventArgs e)

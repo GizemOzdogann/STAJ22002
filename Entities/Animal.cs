@@ -13,20 +13,24 @@ namespace FarmManager.Entities
         public string? Gender { get; set; }
         public int Age { get; set; }
         public virtual int LifeSpan { get; } = 0;
-
         public virtual int lifeTick { get; set; } = 1;
         public virtual int productTick { get; set; } = 1;
     }
-
-    public class Cow : Animal{
-
+    public class Cow : Animal
+    {
         public override int lifeTick { get; set; } = 10;
         public override int productTick { get; set; } = 5;
-
-
     }
-    public class Chicken : Animal{}
-    public class Sheep : Animal{}
+    public class Chicken : Animal
+    {
+        public override int lifeTick { get; set; } = 20;
+        public override int productTick { get; set; } = 3;
+    }
+    public class Sheep : Animal
+    {
+        public override int lifeTick { get; set; } = 15;
+        public override int productTick { get; set; } = 4;
+    }
 
     public enum AnimalNames
     {

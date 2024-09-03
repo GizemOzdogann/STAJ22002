@@ -38,8 +38,6 @@ namespace FarmManager.Services
         public IAnimal? GetAnimalById(int id)
         {
             return _store.GetAnimals().FirstOrDefault(a => a.Id == id);
-            
-            // caller side handling ?????
         }
 
         public int GetAnimalCountByType()

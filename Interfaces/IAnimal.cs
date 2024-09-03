@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace FarmManager.Interfaces
 {
-    // ID, Gender, Age
     public interface IAnimal
     {
         public int Id { get; set; }
