@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "XdGMnkJ4Il4=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\ozdog\\Projects\\FarmManager\\FarmManager.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ozdog\\.nuget\\packages\\autofac\\8.0.0\\autofac.8.0.0.nupkg.sha512",
+    "C:\\Users\\ozdog\\.nuget\\packages\\autofac.extensions.dependencyinjection\\9.0.0\\autofac.extensions.dependencyinjection.9.0.0.nupkg.sha512",
+    "C:\\Users\\ozdog\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\ozdog\\.nuget\\packages\\system.diagnostics.diagnosticsource\\7.0.2\\system.diagnostics.diagnosticsource.7.0.2.nupkg.sha512"
+  ],
+  "logs": []
+}
