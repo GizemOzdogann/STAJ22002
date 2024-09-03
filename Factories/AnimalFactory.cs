@@ -31,5 +31,15 @@ namespace ManagerApp.Factories
                 _ => throw new ArgumentException("Invalid animal type", nameof(animalType))
             };
         }
+        public static Animal ToAnimal(AnimalModelBase animalModel)
+        {
+            return animalModel switch
+            {
+                CowModel => new Cow {},
+                ChickenModel => new Chicken {},
+                SheepModel => new Sheep {},
+                _ => throw new ArgumentException("Invalid animal model type", nameof(animalModel))
+            };
+        }
     }
 }

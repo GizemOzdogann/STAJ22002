@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FarmManager.Entities;
 
 namespace FarmManager.Interfaces
 {
     public interface IAnimalService
     {
-        void AddAnimal(IAnimal animal);
-        //void UpdateAnimal(IAnimal animal);
-        void RemoveAnimal(int id);
+        void AddAnimal(Animal animal);
+        void RemoveAnimal(Animal animal);
         IAnimal? GetAnimalById(int id);
         int GetAllAnimals();
 

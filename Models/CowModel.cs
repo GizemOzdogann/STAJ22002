@@ -15,18 +15,19 @@ namespace FarmManager.Models
         { 
             AnimalName = Convert.ToString(AnimalNames.Cow);
             AnimalImage = LoadImage();
+
             LifeBar.Minimum = 0;
-            ProductionBar.Maximum = 75;
+            LifeBar.Maximum = 100;
+            LifeBar.Value = 100;
+
+            ProductionBar.Minimum = 0;
+            ProductionBar.Maximum = 100;
+            ProductionBar.Value = 0;
         }
-        
+
         public override Image LoadImage()
         {
             return Image.FromFile("C:\\Users\\ozdog\\Projects\\FarmManager\\Assets\\cow.png");
         }
     }
-    
-    
-
-
-
 }

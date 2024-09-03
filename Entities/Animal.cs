@@ -18,17 +18,17 @@ namespace FarmManager.Entities
     }
     public class Cow : Animal
     {
-        public override int lifeTick { get; set; } = 10;
+        public override int lifeTick { get; set; } = 1;
         public override int productTick { get; set; } = 5;
     }
     public class Chicken : Animal
     {
-        public override int lifeTick { get; set; } = 20;
+        public override int lifeTick { get; set; } = 2;
         public override int productTick { get; set; } = 3;
     }
     public class Sheep : Animal
     {
-        public override int lifeTick { get; set; } = 15;
+        public override int lifeTick { get; set; } = 3;
         public override int productTick { get; set; } = 4;
     }
 

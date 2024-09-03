@@ -4,8 +4,6 @@ using FarmManager.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FarmManager.Services
 {
@@ -18,21 +16,14 @@ namespace FarmManager.Services
             _store = store;
         }
 
-        public void AddAnimal(IAnimal animal)
+        public void AddAnimal(Animal animal)
         {
-            if (animal is Animal a)
-            {
-                _store.AddAnimal(a);
-            }
+            _store.AddAnimal(animal);
         }
 
-        public void RemoveAnimal(int id)
+        public void RemoveAnimal(Animal animal)
         {
-            var animal = GetAnimalById(id) as Animal;
-            if (animal != null)
-            {
-                _store.RemoveAnimal(animal);
-            }
+            _store.RemoveAnimal(animal);
         }
 
         public IAnimal? GetAnimalById(int id)
@@ -49,6 +40,5 @@ namespace FarmManager.Services
         {
             return _store.GetAnimals().Count;
         }
-
     }
 }

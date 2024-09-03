@@ -19,7 +19,7 @@ namespace FarmManager.Models
         public Image? AnimalImage { get; set; }
         public string? AnimalName { get; set; }
         public ProgressBar ProductionBar { get; set; } = new();
-        public ProgressBar LifeBar { get; set; } = new ProgressBar();
+        public ProgressBar LifeBar { get; set; } = new();
         public int lifeTick {get; set; }
         public int productTick { get; set; }
         public abstract Image LoadImage();

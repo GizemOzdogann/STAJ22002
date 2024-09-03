@@ -20,7 +20,7 @@ namespace FarmManager
         {
             InitializeComponent();
             InitializeTimer();
-            progressTimer.Tick += progressTimer_Tick;
+            progressTimer.Tick += ProgressTimer_Tick;
             this.animalService = animalService;
         }
 
@@ -30,12 +30,11 @@ namespace FarmManager
             string? Gender = GenderPickComboBox.SelectedItem?.ToString();
             string? Age = AgeComboBox.SelectedItem?.ToString();
 
-
             if (!string.IsNullOrEmpty(Animal) && !string.IsNullOrEmpty(Gender) && !string.IsNullOrEmpty(Age))
             {
                 try
                 {
-                    IAnimal animal = AnimalFactory.GetFactory(Animal);
+                    Animal animal = AnimalFactory.GetFactory(Animal);
                     animalService.AddAnimal(animal);
                     AnimalModelBase animalModel = AnimalFactory.GetModalFactory(Animal);
                     animalModel.productTick = animal.productTick;
@@ -43,13 +42,11 @@ namespace FarmManager
                     ListItem listItem = new(animalModel) { Size = new(175, 249) };
                     BindData(animalModel, listItem);
                     flowLayoutPanel1.Controls.Add(listItem);
-
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show($"Failed to add control: {ex.Message}");
                 }
-
                 flowLayoutPanel1.Refresh();
             }
 
@@ -57,14 +54,13 @@ namespace FarmManager
 
             ClearComboBoxes();
         }
-        public void BindData(AnimalModelBase animalModel, ListItem listItem)
+        public static void BindData(AnimalModelBase animalModel, ListItem listItem)
         {
             listItem.pictureBox.Image = animalModel.AnimalImage;
             listItem.label1.Text = animalModel.AnimalName;
 
             listItem.LifeBar.Maximum = animalModel.LifeBar?.Maximum ?? 100;
             listItem.LifeBar.Value = animalModel.LifeBar?.Value ?? 0;
-
 
             listItem.ProductionBar.Maximum = animalModel.ProductionBar?.Maximum ?? 100;
             listItem.ProductionBar.Value = animalModel.ProductionBar?.Value ?? 0;
@@ -82,28 +78,46 @@ namespace FarmManager
             GenderPickComboBox.SelectedIndex = -1;
         }
 
-        //LifeTick 
-
-        private void progressTimer_Tick(object? sender, EventArgs e)
+        private void ProgressTimer_Tick(object? sender, EventArgs e)
         {
+            int itemCount = flowLayoutPanel1.Controls.Count;
+            label3.Text = $"Total: {itemCount}";
+
+            List<ListItem> itemsToRemove = new();
+
             foreach (ListItem item in flowLayoutPanel1.Controls)
             {
-                // Decrease LifeBar based on lifeTick value, ensuring it doesn't drop below 0
                 if (item.LifeBar.Value > 0)
                 {
                     item.LifeBar.Value = Math.Max(0, item.LifeBar.Value - item.AnimalModel.lifeTick);
                 }
 
-                // Increase ProductionBar based on productTick value, ensuring it doesn't exceed the maximum
-                if (item.ProductionBar.Value < item.ProductionBar.Maximum)
+                if (item.ProductionBar.Value < 100)
                 {
                     item.ProductionBar.Value = Math.Min(item.ProductionBar.Maximum, item.ProductionBar.Value + item.AnimalModel.productTick);
+                }
+
+                if (item.LifeBar.Value == 0)
+                {
+                    itemsToRemove.Add(item);
+                }
+
+            }
+
+            foreach (ListItem item in itemsToRemove) 
+            {
+                flowLayoutPanel1.Controls.Remove(item);
+
+                var animal = AnimalFactory.ToAnimal(item.AnimalModel);
+                if (animal != null)
+                {
+                    animalService.RemoveAnimal(animal);
                 }
             }
         }
         private void MainForm_Load(object sender, EventArgs e)
         {
-            Thread progressThread = new Thread(new ThreadStart(UpdateProgressBar));
+            Thread progressThread = new(new ThreadStart(UpdateProgressBar));
             progressThread.Start();
         }
 
@@ -130,26 +144,10 @@ namespace FarmManager
                 progressValue++;
             }
         }
-        private void UpdateListItemProgressBars(object sender, EventArgs e)
-        {
-            foreach (ListItem item in flowLayoutPanel1.Controls)
-            {
-                
-                if (item.LifeBar.Value > 0)
-                {
-                    item.LifeBar.Value--;
-                }
-
-                if (item.ProductionBar.Value < item.ProductionBar.Maximum)
-                {
-                    item.ProductionBar.Value++;
-                }
-            }
-        }
         private void InitializeTimer()
         {
             progressTimer.Interval = 1000;
-            progressTimer.Tick += progressTimer_Tick;
+            progressTimer.Tick += ProgressTimer_Tick;
             progressTimer.Start();
         }
     }

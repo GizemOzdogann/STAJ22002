@@ -1,9 +1,9 @@
 C:\Users\ozdog\Projects\FarmManager\bin\Debug\net8.0-windows\FarmManager.exe
+C:\Users\ozdog\Projects\FarmManager\bin\Debug\net8.0-windows\FarmManager.dll
+C:\Users\ozdog\Projects\FarmManager\bin\Debug\net8.0-windows\Autofac.dll
 C:\Users\ozdog\Projects\FarmManager\bin\Debug\net8.0-windows\FarmManager.deps.json
 C:\Users\ozdog\Projects\FarmManager\bin\Debug\net8.0-windows\FarmManager.runtimeconfig.json
-C:\Users\ozdog\Projects\FarmManager\bin\Debug\net8.0-windows\FarmManager.dll
 C:\Users\ozdog\Projects\FarmManager\bin\Debug\net8.0-windows\FarmManager.pdb
-C:\Users\ozdog\Projects\FarmManager\bin\Debug\net8.0-windows\Autofac.dll
 C:\Users\ozdog\Projects\FarmManager\bin\Debug\net8.0-windows\Autofac.Extensions.DependencyInjection.dll
 C:\Users\ozdog\Projects\FarmManager\bin\Debug\net8.0-windows\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 C:\Users\ozdog\Projects\FarmManager\obj\Debug\net8.0-windows\FarmManager.csproj.AssemblyReference.cache

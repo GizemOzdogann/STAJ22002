@@ -21,13 +21,10 @@ namespace FarmManager
 
             var container = ConfigureContainer();
 
-            using (var scope = container.BeginLifetimeScope())
-            {
-                var mainForm = scope.Resolve<MainForm>();
+            using ILifetimeScope scope = container.BeginLifetimeScope();
+            var mainForm = scope.Resolve<MainForm>();
 
-                Application.Run(mainForm);
-                
-            }
+            Application.Run(mainForm);
         }
 
         private static IContainer ConfigureContainer()
