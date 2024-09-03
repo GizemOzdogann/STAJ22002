@@ -40,9 +40,7 @@ namespace FarmManager.UI
             return _productList.GroupBy(p => p.GetType())
                                      .ToDictionary(g => g.Key, g => g.Count());
         }
-
         #endregion Products
-
     }
 }
 

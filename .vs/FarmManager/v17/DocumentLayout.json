@@ -11,28 +11,20 @@
       "RelativeMoniker": "D:0:0:{3216E9CC-16CA-4A37-BC4F-40E0DCDFA4F9}|FarmManager.csproj|solutionrelative:ui\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3216E9CC-16CA-4A37-BC4F-40E0DCDFA4F9}|FarmManager.csproj|c:\\users\\ozdog\\projects\\farmmanager\\models\\sheepmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3216E9CC-16CA-4A37-BC4F-40E0DCDFA4F9}|FarmManager.csproj|solutionrelative:models\\sheepmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3216E9CC-16CA-4A37-BC4F-40E0DCDFA4F9}|FarmManager.csproj|c:\\users\\ozdog\\projects\\farmmanager\\entities\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3216E9CC-16CA-4A37-BC4F-40E0DCDFA4F9}|FarmManager.csproj|solutionrelative:entities\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3216E9CC-16CA-4A37-BC4F-40E0DCDFA4F9}|FarmManager.csproj|c:\\users\\ozdog\\projects\\farmmanager\\factories\\animalfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3216E9CC-16CA-4A37-BC4F-40E0DCDFA4F9}|FarmManager.csproj|solutionrelative:factories\\animalfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3216E9CC-16CA-4A37-BC4F-40E0DCDFA4F9}|FarmManager.csproj|c:\\users\\ozdog\\projects\\farmmanager\\interfaces\\iproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3216E9CC-16CA-4A37-BC4F-40E0DCDFA4F9}|FarmManager.csproj|solutionrelative:interfaces\\iproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3216E9CC-16CA-4A37-BC4F-40E0DCDFA4F9}|FarmManager.csproj|c:\\users\\ozdog\\projects\\farmmanager\\models\\chickenmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3216E9CC-16CA-4A37-BC4F-40E0DCDFA4F9}|FarmManager.csproj|solutionrelative:models\\chickenmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3216E9CC-16CA-4A37-BC4F-40E0DCDFA4F9}|FarmManager.csproj|c:\\users\\ozdog\\projects\\farmmanager\\services\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3216E9CC-16CA-4A37-BC4F-40E0DCDFA4F9}|FarmManager.csproj|solutionrelative:services\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3216E9CC-16CA-4A37-BC4F-40E0DCDFA4F9}|FarmManager.csproj|c:\\users\\ozdog\\projects\\farmmanager\\services\\animalservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3216E9CC-16CA-4A37-BC4F-40E0DCDFA4F9}|FarmManager.csproj|solutionrelative:services\\animalservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3216E9CC-16CA-4A37-BC4F-40E0DCDFA4F9}|FarmManager.csproj|c:\\users\\ozdog\\projects\\farmmanager\\models\\cowmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3216E9CC-16CA-4A37-BC4F-40E0DCDFA4F9}|FarmManager.csproj|solutionrelative:models\\cowmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3216E9CC-16CA-4A37-BC4F-40E0DCDFA4F9}|FarmManager.csproj|c:\\users\\ozdog\\projects\\farmmanager\\entities\\animal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3216E9CC-16CA-4A37-BC4F-40E0DCDFA4F9}|FarmManager.csproj|solutionrelative:entities\\animal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3216E9CC-16CA-4A37-BC4F-40E0DCDFA4F9}|FarmManager.csproj|c:\\users\\ozdog\\projects\\farmmanager\\stores\\store.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3216E9CC-16CA-4A37-BC4F-40E0DCDFA4F9}|FarmManager.csproj|solutionrelative:stores\\store.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,24 +34,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 4,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "AnimalFactory.cs",
-              "DocumentMoniker": "C:\\Users\\ozdog\\Projects\\FarmManager\\Factories\\AnimalFactory.cs",
-              "RelativeDocumentMoniker": "Factories\\AnimalFactory.cs",
-              "ToolTip": "C:\\Users\\ozdog\\Projects\\FarmManager\\Factories\\AnimalFactory.cs",
-              "RelativeToolTip": "Factories\\AnimalFactory.cs",
-              "ViewState": "AQIAAA0AAAAAAAAAAAAQwAAAAAAAAAAA",
+              "Title": "IProduct.cs",
+              "DocumentMoniker": "C:\\Users\\ozdog\\Projects\\FarmManager\\Interfaces\\IProduct.cs",
+              "RelativeDocumentMoniker": "Interfaces\\IProduct.cs",
+              "ToolTip": "C:\\Users\\ozdog\\Projects\\FarmManager\\Interfaces\\IProduct.cs",
+              "RelativeToolTip": "Interfaces\\IProduct.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAuwAsAAAAfAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-03T08:37:15.028Z",
+              "WhenOpened": "2024-09-03T12:45:52.643Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Product.cs",
+              "DocumentMoniker": "C:\\Users\\ozdog\\Projects\\FarmManager\\Entities\\Product.cs",
+              "RelativeDocumentMoniker": "Entities\\Product.cs",
+              "ToolTip": "C:\\Users\\ozdog\\Projects\\FarmManager\\Entities\\Product.cs",
+              "RelativeToolTip": "Entities\\Product.cs",
+              "ViewState": "AQIAAAEAAAAAAAAAAAAQwAsAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-03T12:42:35.419Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
             },
             {
               "$type": "Document",
@@ -70,47 +75,8 @@
               "ToolTip": "C:\\Users\\ozdog\\Projects\\FarmManager\\UI\\MainForm.cs [Design]",
               "RelativeToolTip": "UI\\MainForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-03T08:35:04.415Z",
+              "WhenOpened": "2024-09-03T11:49:16.887Z",
               "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "SheepModel.cs",
-              "DocumentMoniker": "C:\\Users\\ozdog\\Projects\\FarmManager\\Models\\SheepModel.cs",
-              "RelativeDocumentMoniker": "Models\\SheepModel.cs",
-              "ToolTip": "C:\\Users\\ozdog\\Projects\\FarmManager\\Models\\SheepModel.cs",
-              "RelativeToolTip": "Models\\SheepModel.cs",
-              "ViewState": "AQIAABAAAAAAAAAAAAAQwBMAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-03T08:27:21.161Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "CowModel.cs",
-              "DocumentMoniker": "C:\\Users\\ozdog\\Projects\\FarmManager\\Models\\CowModel.cs",
-              "RelativeDocumentMoniker": "Models\\CowModel.cs",
-              "ToolTip": "C:\\Users\\ozdog\\Projects\\FarmManager\\Models\\CowModel.cs",
-              "RelativeToolTip": "Models\\CowModel.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAuwAwAAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-03T08:26:30.245Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ChickenModel.cs",
-              "DocumentMoniker": "C:\\Users\\ozdog\\Projects\\FarmManager\\Models\\ChickenModel.cs",
-              "RelativeDocumentMoniker": "Models\\ChickenModel.cs",
-              "ToolTip": "C:\\Users\\ozdog\\Projects\\FarmManager\\Models\\ChickenModel.cs",
-              "RelativeToolTip": "Models\\ChickenModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAgAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-03T08:25:57.581Z",
-              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -120,35 +86,35 @@
               "RelativeDocumentMoniker": "UI\\MainForm.cs",
               "ToolTip": "C:\\Users\\ozdog\\Projects\\FarmManager\\UI\\MainForm.cs",
               "RelativeToolTip": "UI\\MainForm.cs",
-              "ViewState": "AQIAACEAAAAAAAAAAAAYwCoAAAAyAAAA",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAUwBcAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-02T06:43:36.052Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Animal.cs",
-              "DocumentMoniker": "C:\\Users\\ozdog\\Projects\\FarmManager\\Entities\\Animal.cs",
-              "RelativeDocumentMoniker": "Entities\\Animal.cs",
-              "ToolTip": "C:\\Users\\ozdog\\Projects\\FarmManager\\Entities\\Animal.cs",
-              "RelativeToolTip": "Entities\\Animal.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAAA8AAAA2AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-03T08:21:40.031Z",
+              "WhenOpened": "2024-09-03T11:48:04.155Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "AnimalService.cs",
-              "DocumentMoniker": "C:\\Users\\ozdog\\Projects\\FarmManager\\Services\\AnimalService.cs",
-              "RelativeDocumentMoniker": "Services\\AnimalService.cs",
-              "ToolTip": "C:\\Users\\ozdog\\Projects\\FarmManager\\Services\\AnimalService.cs",
-              "RelativeToolTip": "Services\\AnimalService.cs",
-              "ViewState": "AQIAABUAAAAAAAAAAAAYwAgAAAABAAAA",
+              "Title": "Store.cs",
+              "DocumentMoniker": "C:\\Users\\ozdog\\Projects\\FarmManager\\Stores\\Store.cs",
+              "RelativeDocumentMoniker": "Stores\\Store.cs",
+              "ToolTip": "C:\\Users\\ozdog\\Projects\\FarmManager\\Stores\\Store.cs",
+              "RelativeToolTip": "Stores\\Store.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAAwCUAAAA8AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-03T07:44:21.759Z",
+              "WhenOpened": "2024-09-03T11:26:35.801Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ProductService.cs",
+              "DocumentMoniker": "C:\\Users\\ozdog\\Projects\\FarmManager\\Services\\ProductService.cs",
+              "RelativeDocumentMoniker": "Services\\ProductService.cs",
+              "ToolTip": "C:\\Users\\ozdog\\Projects\\FarmManager\\Services\\ProductService.cs",
+              "RelativeToolTip": "Services\\ProductService.cs",
+              "ViewState": "AQIAABUAAAAAAAAAAIA9wB0AAAAyAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-03T10:33:01.675Z",
               "EditorCaption": ""
             }
           ]

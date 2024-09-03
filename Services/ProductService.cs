@@ -19,7 +19,7 @@ namespace FarmManager.Services
             _store = store;
         }
 
-        public void AddProduct(IProduct product)
+        public void AddProduct(Product product)
         {
             if (product is Product p)
             {
@@ -27,25 +27,27 @@ namespace FarmManager.Services
             }
         }
 
-        public void UpdateProducts(string productName, int decAmount)
+        public void UpdateProducts(Product product, int Amount)
         {
-            var eProduct = _store.GetProducts().FirstOrDefault(p => p.Name == productName);
+            if (product != null)
+            { 
+                product.Quantity += Amount;
 
-            if (eProduct != null)
-            {
-                eProduct.Quantity -= decAmount;
-
-                if (eProduct.Quantity <= 0)
+                if (product.Quantity <= 0)
                 {
-                    eProduct.Quantity = 0;
+                    product.Quantity = 0;
                 }
             }
         }
-        public int GetProductCountByType()
+        public int GetProductCount<Product>() 
         {
-            return _store.GetProductCountByType().Sum(p => p.Value);
+            var productCounts = _store.GetProductCountByType();
+            return productCounts.TryGetValue(typeof(Product), out int count) ? count : 0;
         }
-
+        public int GetTotal()
+        {
+            return _store.GetTotalOfProducts();
+        }
         public IEnumerable<IProduct> GetAllProducts()
         {
             return _store.GetProducts();

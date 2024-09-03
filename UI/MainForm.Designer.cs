@@ -52,6 +52,9 @@
             label7 = new Label();
             pictureBox1 = new PictureBox();
             pictureBox3 = new PictureBox();
+            label8 = new Label();
+            label9 = new Label();
+            label10 = new Label();
             panel2 = new Panel();
             label2 = new Label();
             panel1 = new Panel();
@@ -229,6 +232,9 @@
             tableLayoutPanel2.Controls.Add(label7, 1, 2);
             tableLayoutPanel2.Controls.Add(pictureBox1, 2, 0);
             tableLayoutPanel2.Controls.Add(pictureBox3, 2, 2);
+            tableLayoutPanel2.Controls.Add(label8, 3, 0);
+            tableLayoutPanel2.Controls.Add(label9, 3, 1);
+            tableLayoutPanel2.Controls.Add(label10, 3, 2);
             tableLayoutPanel2.Dock = DockStyle.Fill;
             tableLayoutPanel2.Location = new Point(392, 25);
             tableLayoutPanel2.Margin = new Padding(0);
@@ -373,6 +379,33 @@
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox3.TabIndex = 11;
             pictureBox3.TabStop = false;
+            // 
+            // label8
+            // 
+            label8.Anchor = AnchorStyles.None;
+            label8.AutoSize = true;
+            label8.Location = new Point(359, 61);
+            label8.Name = "label8";
+            label8.Size = new Size(0, 20);
+            label8.TabIndex = 12;
+            // 
+            // label9
+            // 
+            label9.Anchor = AnchorStyles.None;
+            label9.AutoSize = true;
+            label9.Location = new Point(359, 204);
+            label9.Name = "label9";
+            label9.Size = new Size(0, 20);
+            label9.TabIndex = 13;
+            // 
+            // label10
+            // 
+            label10.Anchor = AnchorStyles.None;
+            label10.AutoSize = true;
+            label10.Location = new Point(359, 347);
+            label10.Name = "label10";
+            label10.Size = new Size(0, 20);
+            label10.TabIndex = 14;
             // 
             // panel2
             // 
@@ -542,5 +575,8 @@
         private PictureBox pictureBox3;
         private PictureBox pictureBox2;
         private PictureBox pictureBox1;
+        private Label label8;
+        private Label label9;
+        private Label label10;
     }
 }

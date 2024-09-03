@@ -9,19 +9,24 @@ using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using Timer = System.Windows.Forms.Timer;
 using ProgressBar = System.Windows.Forms.ProgressBar;
+using MethodInvoker = System.Windows.Forms.MethodInvoker;
+
+using System.Reflection;
+using FarmManager.Factories;
 
 namespace FarmManager
-{
-    
+{   
     public partial class MainForm : Form
     {
         private readonly IAnimalService animalService;
-        public MainForm(IAnimalService animalService)
+        private readonly IProductService productService;
+        public MainForm(IAnimalService animalService, IProductService productService)
         {
             InitializeComponent();
             InitializeTimer();
             progressTimer.Tick += ProgressTimer_Tick;
             this.animalService = animalService;
+            this.productService = productService;
         }
 
         private void AddButton_Click(object sender, EventArgs e)
@@ -32,28 +37,38 @@ namespace FarmManager
 
             if (!string.IsNullOrEmpty(Animal) && !string.IsNullOrEmpty(Gender) && !string.IsNullOrEmpty(Age))
             {
-                try
-                {
-                    Animal animal = AnimalFactory.GetFactory(Animal);
-                    animalService.AddAnimal(animal);
-                    AnimalModelBase animalModel = AnimalFactory.GetModalFactory(Animal);
-                    animalModel.productTick = animal.productTick;
-                    animalModel.lifeTick = animal.lifeTick;
-                    ListItem listItem = new(animalModel) { Size = new(175, 249) };
-                    BindData(animalModel, listItem);
-                    flowLayoutPanel1.Controls.Add(listItem);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Failed to add control: {ex.Message}");
-                }
-                flowLayoutPanel1.Refresh();
+                BindAnimal(Animal);
+
             }
 
             else { MessageBox.Show("Please select animal type, gender, and age."); }
 
             ClearComboBoxes();
         }
+
+        private void BindAnimal(string animalType)
+        {
+            try
+            {
+                Animal animal = AnimalFactory.GetFactory(animalType);
+                animalService.AddAnimal(animal);
+
+                AnimalModelBase animalModel = AnimalFactory.GetModalFactory(animalType);
+                animalModel.productTick = animal.productTick;
+                animalModel.lifeTick = animal.lifeTick;
+
+                ListItem listItem = new(animalModel) { Size = new(175, 249) };
+                BindData(animalModel, listItem);
+                flowLayoutPanel1.Controls.Add(listItem);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Failed to add control: {ex.Message}");
+            }
+
+            flowLayoutPanel1.Refresh();
+        }
+
         public static void BindData(AnimalModelBase animalModel, ListItem listItem)
         {
             listItem.pictureBox.Image = animalModel.AnimalImage;
@@ -83,31 +98,54 @@ namespace FarmManager
             int itemCount = flowLayoutPanel1.Controls.Count;
             label3.Text = $"Total: {itemCount}";
 
-            List<ListItem> itemsToRemove = new();
+            List<ListItem> itemsToRemove = [];
 
             foreach (ListItem item in flowLayoutPanel1.Controls)
             {
-                if (item.LifeBar.Value > 0)
+                Animal animal = AnimalFactory.ToAnimal(item.AnimalModel);
+                Product product = ProductFactory.GetProductFactory(animal);
+
+                Thread progressThread = new(() => UpdateProgressBar(product));
+                progressThread.Start();
+
+                label8.Text = $"{productService.GetProductCount<Milk>()} lts";
+                label9.Text = $"{productService.GetProductCount<Meat>()} kgs";
+                label10.Text = $"{productService.GetProductCount<Egg>()}";
+
+                if (item.LifeBar.Value > 0  && item.ProductionBar.Value < 100)
                 {
                     item.LifeBar.Value = Math.Max(0, item.LifeBar.Value - item.AnimalModel.lifeTick);
-                }
-
-                if (item.ProductionBar.Value < 100)
-                {
                     item.ProductionBar.Value = Math.Min(item.ProductionBar.Maximum, item.ProductionBar.Value + item.AnimalModel.productTick);
-                }
+                    productService.UpdateProducts(product, 3);
 
+                    label4.Text = $"Total: {productService.GetTotal()}";
+
+                    if (item.LifeBar.Value == 0)
+                    {
+                        itemsToRemove.Add(item);
+                    }
+                    if (item.ProductionBar.Value == 100)
+                    {
+                        productService.AddProduct(product);
+
+                        productService.UpdateProducts(product, 1);
+                    }
+                }
                 if (item.LifeBar.Value == 0)
                 {
                     itemsToRemove.Add(item);
+
                 }
 
+                if (item.ProductionBar.Value == 100)
+                {
+                    productService.AddProduct(product);
+                }
             }
 
             foreach (ListItem item in itemsToRemove) 
             {
                 flowLayoutPanel1.Controls.Remove(item);
-
                 var animal = AnimalFactory.ToAnimal(item.AnimalModel);
                 if (animal != null)
                 {
@@ -115,14 +153,15 @@ namespace FarmManager
                 }
             }
         }
+
         private void MainForm_Load(object sender, EventArgs e)
         {
-            Thread progressThread = new(new ThreadStart(UpdateProgressBar));
-            progressThread.Start();
+            //Thread progressThread = new(() => UpdateProgressBar(1));
+            //progressThread.Start();
         }
 
         private int progressValue = 0;
-        private void UpdateProgressBar()
+        private void UpdateProgressBar(Product index)
         {
             while (progressValue <= 100)
             {
@@ -130,11 +169,17 @@ namespace FarmManager
                 {
                     this.Invoke((MethodInvoker)delegate
                     {
-                        if (circularProgressBar1 != null && circularProgressBar2 != null && circularProgressBar3 != null)
+                        switch (index)
                         {
-                            circularProgressBar1.Value = progressValue;
-                            circularProgressBar2.Value = progressValue;
-                            circularProgressBar3.Value = progressValue;
+                            case Milk:
+                                circularProgressBar1.Value = progressValue;
+                                break;
+                            case Meat:
+                                circularProgressBar2.Value = progressValue;
+                                break;
+                            case Egg:
+                                circularProgressBar3.Value = progressValue;
+                                break;
                         }
                     });
                 }
