@@ -107,10 +107,10 @@ namespace FarmManager
                 Product product = ProductFactory.GetProductFactory(animal);
 
                 item.LifeBar.Value = Math.Max(0, item.LifeBar.Value - animal.lifeTick);
+
                 if (item.LifeBar.Value == 0)
                 {
                     itemsToRemove.Add(item);
-                    //circularProgressBar3.Value = Math.Min(circularProgressBar3.Maximum, circularProgressBar3.Value++);
                     circularProgressBar2.Value+=2;
                     productService.AddProduct(new Meat());
                 }
@@ -123,8 +123,6 @@ namespace FarmManager
                     item.ProductionBar.Value = 0;
                 }
 
-                //label4.Text = $"Total: {productService.GetTotal()}";
-                
                 label8.Text = $"{productService.GetProductCount<Milk>()}";
                 label9.Text = $"{productService.GetProductCount<Meat>()}";
                 label10.Text = $"{productService.GetProductCount<Egg>()}";
@@ -137,9 +135,7 @@ namespace FarmManager
                 flowLayoutPanel1.Controls.Remove(item);
                 Animal animal = AnimalFactory.ToAnimal(item.AnimalModel);
                 animalService.RemoveAnimal(animal);
-                
             }
-            
         }
         private void MainForm_Load(object sender, EventArgs e)
         {
@@ -167,16 +163,23 @@ namespace FarmManager
                         break;
                 }
             }
-            else if (progressValue == 100) 
-            {
-                progressValue = 0;
-                label4.Text = $"Total: {count}";
-                count++;
+
+            foreach (CircularProgressBar bar in tableLayoutPanel2.Controls.OfType<CircularProgressBar>())
+            {   
+                if (progressValue == 100)
+                {
+                    progressValue = 0;
+                   label4.Text = $"Total: {count}";
+                   count++;
+                }
             }
-                //Thread.Sleep(500);
-                //progressValue++;
+            ////if (progressValue == 100)
+            ////{
+            ////    progressValue = 0;
+            ////    label4.Text = $"Total: {count}";
+            ////    count++;
+            ////}
         }
-        
         private void InitializeTimer()
         {
             progressTimer.Interval = 1000;

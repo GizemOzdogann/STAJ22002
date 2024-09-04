@@ -486,9 +486,8 @@
             label3.AutoSize = true;
             label3.Location = new Point(172, 2);
             label3.Name = "label3";
-            label3.Size = new Size(49, 20);
+            label3.Size = new Size(0, 20);
             label3.TabIndex = 1;
-            label3.Text = "Total: ";
             // 
             // panel5
             // 
@@ -504,11 +503,10 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(173, 2);
+            label4.Location = new Point(185, 0);
             label4.Name = "label4";
-            label4.Size = new Size(49, 20);
+            label4.Size = new Size(0, 20);
             label4.TabIndex = 1;
-            label4.Text = "Total: ";
             // 
             // MainForm
             // 
