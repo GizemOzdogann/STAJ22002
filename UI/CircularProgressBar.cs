@@ -53,14 +53,13 @@ namespace FarmManager
         this.ForeColor = Color.DimGray;
 
         this.Size = new Size(130, 130);
-        this.Font = new Font("Segoe UI", 15);
+        this.Font = new Font("Microsoft JhengHei UI", 15);
         this.MinimumSize = new Size(100, 100);
         this.DoubleBuffered = true;
-
         this.LineWidth = 1;
         this.LineColor = Color.DimGray;
 
-        Value = 57;
+        _Value = 100;
         ProgressShape = _ProgressShape.Flat;
         TextMode = _TextMode.Percentage;
     }

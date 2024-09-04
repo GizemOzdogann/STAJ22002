@@ -22,6 +22,12 @@ namespace FarmManager.Models
             ProductionBar.Maximum = 100; 
             ProductionBar.Value = 0;
         }
+
+        public override Product Production()
+        {
+            return new Egg();
+        }
+
         public override Image LoadImage()
         {
             return Image.FromFile("C:\\Users\\ozdog\\Projects\\FarmManager\\Assets\\chicken.png");

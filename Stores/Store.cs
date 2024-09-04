@@ -43,4 +43,3 @@ namespace FarmManager.UI
         #endregion Products
     }
 }
-

@@ -26,11 +26,6 @@ namespace FarmManager.Services
             _store.RemoveAnimal(animal);
         }
 
-        public IAnimal? GetAnimalById(int id)
-        {
-            return _store.GetAnimals().FirstOrDefault(a => a.Id == id);
-        }
-
         public int GetAnimalCountByType()
         {
             return _store.GetAnimalCountByType().Sum(p => p.Value);

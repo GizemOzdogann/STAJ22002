@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
 namespace FarmManager.Services
 {
     internal class ProductService : IProductService

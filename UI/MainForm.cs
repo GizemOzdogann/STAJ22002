@@ -10,12 +10,11 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using Timer = System.Windows.Forms.Timer;
 using ProgressBar = System.Windows.Forms.ProgressBar;
 using MethodInvoker = System.Windows.Forms.MethodInvoker;
-
 using System.Reflection;
 using FarmManager.Factories;
 
 namespace FarmManager
-{   
+{
     public partial class MainForm : Form
     {
         private readonly IAnimalService animalService;
@@ -54,11 +53,14 @@ namespace FarmManager
                 animalService.AddAnimal(animal);
 
                 AnimalModelBase animalModel = AnimalFactory.GetModalFactory(animalType);
+
                 animalModel.productTick = animal.productTick;
                 animalModel.lifeTick = animal.lifeTick;
-
+                
                 ListItem listItem = new(animalModel) { Size = new(175, 249) };
+
                 BindData(animalModel, listItem);
+
                 flowLayoutPanel1.Controls.Add(listItem);
             }
             catch (Exception ex)
@@ -97,98 +99,84 @@ namespace FarmManager
         {
             int itemCount = flowLayoutPanel1.Controls.Count;
             label3.Text = $"Total: {itemCount}";
-
-            List<ListItem> itemsToRemove = [];
+            List<ListItem> itemsToRemove = new();
 
             foreach (ListItem item in flowLayoutPanel1.Controls)
             {
                 Animal animal = AnimalFactory.ToAnimal(item.AnimalModel);
                 Product product = ProductFactory.GetProductFactory(animal);
 
-                Thread progressThread = new(() => UpdateProgressBar(product));
-                progressThread.Start();
-
-                label8.Text = $"{productService.GetProductCount<Milk>()} lts";
-                label9.Text = $"{productService.GetProductCount<Meat>()} kgs";
-                label10.Text = $"{productService.GetProductCount<Egg>()}";
-
-                if (item.LifeBar.Value > 0  && item.ProductionBar.Value < 100)
-                {
-                    item.LifeBar.Value = Math.Max(0, item.LifeBar.Value - item.AnimalModel.lifeTick);
-                    item.ProductionBar.Value = Math.Min(item.ProductionBar.Maximum, item.ProductionBar.Value + item.AnimalModel.productTick);
-                    productService.UpdateProducts(product, 3);
-
-                    label4.Text = $"Total: {productService.GetTotal()}";
-
-                    if (item.LifeBar.Value == 0)
-                    {
-                        itemsToRemove.Add(item);
-                    }
-                    if (item.ProductionBar.Value == 100)
-                    {
-                        productService.AddProduct(product);
-
-                        productService.UpdateProducts(product, 1);
-                    }
-                }
+                item.LifeBar.Value = Math.Max(0, item.LifeBar.Value - animal.lifeTick);
                 if (item.LifeBar.Value == 0)
                 {
                     itemsToRemove.Add(item);
-
+                    //circularProgressBar3.Value = Math.Min(circularProgressBar3.Maximum, circularProgressBar3.Value++);
+                    circularProgressBar2.Value+=2;
+                    productService.AddProduct(new Meat());
                 }
 
+                item.ProductionBar.Value = Math.Min(item.ProductionBar.Maximum, item.ProductionBar.Value + animal.productTick);
+                
                 if (item.ProductionBar.Value == 100)
                 {
                     productService.AddProduct(product);
+                    item.ProductionBar.Value = 0;
                 }
+
+                //label4.Text = $"Total: {productService.GetTotal()}";
+                
+                label8.Text = $"{productService.GetProductCount<Milk>()}";
+                label9.Text = $"{productService.GetProductCount<Meat>()}";
+                label10.Text = $"{productService.GetProductCount<Egg>()}";
+
+                UpdateProgressBar(animal);
             }
 
-            foreach (ListItem item in itemsToRemove) 
+            foreach (ListItem item in itemsToRemove)
             {
                 flowLayoutPanel1.Controls.Remove(item);
-                var animal = AnimalFactory.ToAnimal(item.AnimalModel);
-                if (animal != null)
-                {
-                    animalService.RemoveAnimal(animal);
-                }
+                Animal animal = AnimalFactory.ToAnimal(item.AnimalModel);
+                animalService.RemoveAnimal(animal);
+                
             }
+            
         }
-
         private void MainForm_Load(object sender, EventArgs e)
         {
-            //Thread progressThread = new(() => UpdateProgressBar(1));
-            //progressThread.Start();
+            circularProgressBar1.Value = 0;
+            circularProgressBar2.Value = 0;
+            circularProgressBar3.Value = 0;
         }
 
         private int progressValue = 0;
-        private void UpdateProgressBar(Product index)
+        private int count = 1;
+        private void UpdateProgressBar(Animal index)
         {
-            while (progressValue <= 100)
+            if (progressValue < 100)
             {
-                if (this.IsHandleCreated)
+                switch (index)
                 {
-                    this.Invoke((MethodInvoker)delegate
-                    {
-                        switch (index)
-                        {
-                            case Milk:
-                                circularProgressBar1.Value = progressValue;
-                                break;
-                            case Meat:
-                                circularProgressBar2.Value = progressValue;
-                                break;
-                            case Egg:
-                                circularProgressBar3.Value = progressValue;
-                                break;
-                        }
-                    });
+                    case Cow:
+                        circularProgressBar1.Value = progressValue++;
+                        break;
+                    case Sheep:
+                        circularProgressBar1.Value = progressValue++;
+                        break;
+                    case Chicken:
+                        circularProgressBar3.Value = progressValue++;
+                        break;
                 }
-
-                Thread.Sleep(500);
-
-                progressValue++;
             }
+            else if (progressValue == 100) 
+            {
+                progressValue = 0;
+                label4.Text = $"Total: {count}";
+                count++;
+            }
+                //Thread.Sleep(500);
+                //progressValue++;
         }
+        
         private void InitializeTimer()
         {
             progressTimer.Interval = 1000;
