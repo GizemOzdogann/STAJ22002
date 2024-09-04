@@ -15,8 +15,8 @@ namespace FarmManager.Entities
         //public string? Gender { get; set; }
         //public int Age { get; set; }
         //public virtual int LifeSpan { get; } = 0;
-        public virtual int lifeTick { get; set; } = 1;
-        public virtual int productTick { get; set; } = 1;
+        public virtual int LifeTick { get; set; } = 1;
+        public virtual int ProductTick { get; set; } = 1;
         public virtual Product? Product { get; set; }
         public Animal() { }
 
@@ -29,24 +29,24 @@ namespace FarmManager.Entities
     {
         public Cow() : base(new Milk())
         {
-            lifeTick = 1;
-            productTick = 19;
+            LifeTick = 1;
+            ProductTick = 19;
         }
     }
     public class Chicken : Animal
     {
         public Chicken() : base(new Egg())
         {
-            lifeTick = 2;
-            productTick = 25;
+            LifeTick = 2;
+            ProductTick = 25;
         }
     }
     public class Sheep : Animal
     {
         public Sheep() : base(new Milk())
         {
-            lifeTick= 2;
-            productTick = 20;
+            LifeTick= 2;
+            ProductTick = 20;
         }
     }
     public enum AnimalNames

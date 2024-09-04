@@ -54,8 +54,8 @@ namespace FarmManager
 
                 AnimalModelBase animalModel = AnimalFactory.GetModalFactory(animalType);
 
-                animalModel.productTick = animal.productTick;
-                animalModel.lifeTick = animal.lifeTick;
+                animalModel.ProductTick = animal.ProductTick;
+                animalModel.LifeTick = animal.LifeTick;
                 
                 ListItem listItem = new(animalModel) { Size = new(175, 249) };
 
@@ -99,14 +99,14 @@ namespace FarmManager
         {
             int itemCount = flowLayoutPanel1.Controls.Count;
             label3.Text = $"Total: {itemCount}";
-            List<ListItem> itemsToRemove = new();
+            List<ListItem> itemsToRemove = [];
 
             foreach (ListItem item in flowLayoutPanel1.Controls)
             {
                 Animal animal = AnimalFactory.ToAnimal(item.AnimalModel);
                 Product product = ProductFactory.GetProductFactory(animal);
 
-                item.LifeBar.Value = Math.Max(0, item.LifeBar.Value - animal.lifeTick);
+                item.LifeBar.Value = Math.Max(0, item.LifeBar.Value - animal.LifeTick);
                 if (item.LifeBar.Value == 0)
                 {
                     itemsToRemove.Add(item);
@@ -115,7 +115,7 @@ namespace FarmManager
                     productService.AddProduct(new Meat());
                 }
 
-                item.ProductionBar.Value = Math.Min(item.ProductionBar.Maximum, item.ProductionBar.Value + animal.productTick);
+                item.ProductionBar.Value = Math.Min(item.ProductionBar.Maximum, item.ProductionBar.Value + animal.ProductTick);
                 
                 if (item.ProductionBar.Value == 100)
                 {

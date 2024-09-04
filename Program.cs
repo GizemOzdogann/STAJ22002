@@ -61,8 +61,6 @@ namespace FarmManager
             builder.RegisterType<FarmManagerContext>()
                    .AsSelf()
                    .InstancePerLifetimeScope();
-
-            //return builder.Build();
         }
         
 

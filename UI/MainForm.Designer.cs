@@ -42,6 +42,17 @@
             ExitButton = new Button();
             progressTimer = new System.Windows.Forms.Timer(components);
             tableLayoutPanel1 = new TableLayoutPanel();
+            panel2 = new Panel();
+            label2 = new Label();
+            panel1 = new Panel();
+            label1 = new Label();
+            flowLayoutPanel1 = new FlowLayoutPanel();
+            panel3 = new Panel();
+            label3 = new Label();
+            panel5 = new Panel();
+            label4 = new Label();
+            tabControl1 = new TabControl();
+            tabPage1 = new TabPage();
             tableLayoutPanel2 = new TableLayoutPanel();
             pictureBox2 = new PictureBox();
             circularProgressBar3 = new CircularProgressBar();
@@ -55,25 +66,19 @@
             label8 = new Label();
             label9 = new Label();
             label10 = new Label();
-            panel2 = new Panel();
-            label2 = new Label();
-            panel1 = new Panel();
-            label1 = new Label();
-            flowLayoutPanel1 = new FlowLayoutPanel();
-            panel3 = new Panel();
-            label3 = new Label();
-            panel5 = new Panel();
-            label4 = new Label();
+            tabPage2 = new TabPage();
             SidePanel.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
-            tableLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
             panel5.SuspendLayout();
+            tabControl1.SuspendLayout();
+            tabPage1.SuspendLayout();
+            tableLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             SuspendLayout();
             // 
             // AnimalTypeLabel
@@ -199,12 +204,12 @@
             tableLayoutPanel1.ColumnCount = 2;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.Controls.Add(tableLayoutPanel2, 0, 1);
             tableLayoutPanel1.Controls.Add(panel2, 1, 0);
             tableLayoutPanel1.Controls.Add(panel1, 0, 0);
             tableLayoutPanel1.Controls.Add(flowLayoutPanel1, 0, 1);
             tableLayoutPanel1.Controls.Add(panel3, 0, 2);
             tableLayoutPanel1.Controls.Add(panel5, 1, 2);
+            tableLayoutPanel1.Controls.Add(tabControl1, 1, 1);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(105, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -214,198 +219,6 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 25F));
             tableLayoutPanel1.Size = new Size(785, 479);
             tableLayoutPanel1.TabIndex = 9;
-            // 
-            // tableLayoutPanel2
-            // 
-            tableLayoutPanel2.BackColor = SystemColors.ButtonHighlight;
-            tableLayoutPanel2.ColumnCount = 4;
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 39.8622665F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 14.7748508F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 28.344759F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 17.01812F));
-            tableLayoutPanel2.Controls.Add(pictureBox2, 2, 1);
-            tableLayoutPanel2.Controls.Add(circularProgressBar3, 0, 2);
-            tableLayoutPanel2.Controls.Add(circularProgressBar2, 0, 1);
-            tableLayoutPanel2.Controls.Add(label5, 1, 0);
-            tableLayoutPanel2.Controls.Add(circularProgressBar1, 0, 0);
-            tableLayoutPanel2.Controls.Add(label6, 1, 1);
-            tableLayoutPanel2.Controls.Add(label7, 1, 2);
-            tableLayoutPanel2.Controls.Add(pictureBox1, 2, 0);
-            tableLayoutPanel2.Controls.Add(pictureBox3, 2, 2);
-            tableLayoutPanel2.Controls.Add(label8, 3, 0);
-            tableLayoutPanel2.Controls.Add(label9, 3, 1);
-            tableLayoutPanel2.Controls.Add(label10, 3, 2);
-            tableLayoutPanel2.Dock = DockStyle.Fill;
-            tableLayoutPanel2.Location = new Point(392, 25);
-            tableLayoutPanel2.Margin = new Padding(0);
-            tableLayoutPanel2.Name = "tableLayoutPanel2";
-            tableLayoutPanel2.RowCount = 3;
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 33.33482F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3348122F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 33.33037F));
-            tableLayoutPanel2.Size = new Size(393, 429);
-            tableLayoutPanel2.TabIndex = 10;
-            // 
-            // pictureBox2
-            // 
-            pictureBox2.Anchor = AnchorStyles.Left;
-            pictureBox2.Image = Properties.Resources.meat;
-            pictureBox2.Location = new Point(217, 163);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(105, 102);
-            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox2.TabIndex = 10;
-            pictureBox2.TabStop = false;
-            // 
-            // circularProgressBar3
-            // 
-            circularProgressBar3.Anchor = AnchorStyles.None;
-            circularProgressBar3.BackColor = SystemColors.Control;
-            circularProgressBar3.BarColor1 = Color.MediumSlateBlue;
-            circularProgressBar3.BarColor2 = Color.SkyBlue;
-            circularProgressBar3.BarWidth = 14F;
-            circularProgressBar3.Font = new Font("Segoe UI", 15F);
-            circularProgressBar3.ForeColor = Color.DimGray;
-            circularProgressBar3.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
-            circularProgressBar3.LineColor = Color.DimGray;
-            circularProgressBar3.LineWidth = 1;
-            circularProgressBar3.Location = new Point(9, 289);
-            circularProgressBar3.Maximum = 100L;
-            circularProgressBar3.MinimumSize = new Size(100, 100);
-            circularProgressBar3.Name = "circularProgressBar3";
-            circularProgressBar3.ProgressShape = CircularProgressBar._ProgressShape.Flat;
-            circularProgressBar3.Size = new Size(137, 137);
-            circularProgressBar3.TabIndex = 7;
-            circularProgressBar3.Text = "circularProgressBar3";
-            circularProgressBar3.TextMode = CircularProgressBar._TextMode.Percentage;
-            circularProgressBar3.Value = 57L;
-            // 
-            // circularProgressBar2
-            // 
-            circularProgressBar2.Anchor = AnchorStyles.None;
-            circularProgressBar2.BackColor = SystemColors.Control;
-            circularProgressBar2.BarColor1 = Color.MediumSlateBlue;
-            circularProgressBar2.BarColor2 = Color.SkyBlue;
-            circularProgressBar2.BarWidth = 14F;
-            circularProgressBar2.Font = new Font("Segoe UI", 15F);
-            circularProgressBar2.ForeColor = Color.DimGray;
-            circularProgressBar2.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
-            circularProgressBar2.LineColor = Color.DimGray;
-            circularProgressBar2.LineWidth = 1;
-            circularProgressBar2.Location = new Point(9, 146);
-            circularProgressBar2.Maximum = 100L;
-            circularProgressBar2.MinimumSize = new Size(100, 100);
-            circularProgressBar2.Name = "circularProgressBar2";
-            circularProgressBar2.ProgressShape = CircularProgressBar._ProgressShape.Flat;
-            circularProgressBar2.Size = new Size(137, 137);
-            circularProgressBar2.TabIndex = 4;
-            circularProgressBar2.Text = "circularProgressBar2";
-            circularProgressBar2.TextMode = CircularProgressBar._TextMode.Percentage;
-            circularProgressBar2.Value = 57L;
-            // 
-            // label5
-            // 
-            label5.Anchor = AnchorStyles.Left;
-            label5.AutoSize = true;
-            label5.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.Location = new Point(159, 60);
-            label5.Name = "label5";
-            label5.Size = new Size(43, 22);
-            label5.TabIndex = 5;
-            label5.Text = "Milk";
-            // 
-            // circularProgressBar1
-            // 
-            circularProgressBar1.Anchor = AnchorStyles.None;
-            circularProgressBar1.BackColor = SystemColors.Control;
-            circularProgressBar1.BarColor1 = Color.MediumSlateBlue;
-            circularProgressBar1.BarColor2 = Color.SkyBlue;
-            circularProgressBar1.BarWidth = 14F;
-            circularProgressBar1.Font = new Font("Segoe UI", 15F);
-            circularProgressBar1.ForeColor = Color.DimGray;
-            circularProgressBar1.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
-            circularProgressBar1.LineColor = Color.DimGray;
-            circularProgressBar1.LineWidth = 1;
-            circularProgressBar1.Location = new Point(9, 3);
-            circularProgressBar1.Maximum = 100L;
-            circularProgressBar1.MinimumSize = new Size(100, 100);
-            circularProgressBar1.Name = "circularProgressBar1";
-            circularProgressBar1.ProgressShape = CircularProgressBar._ProgressShape.Flat;
-            circularProgressBar1.Size = new Size(137, 137);
-            circularProgressBar1.TabIndex = 3;
-            circularProgressBar1.Text = "circularProgressBar1";
-            circularProgressBar1.TextMode = CircularProgressBar._TextMode.Percentage;
-            circularProgressBar1.Value = 57L;
-            // 
-            // label6
-            // 
-            label6.Anchor = AnchorStyles.Left;
-            label6.AutoSize = true;
-            label6.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label6.Location = new Point(159, 203);
-            label6.Name = "label6";
-            label6.Size = new Size(51, 22);
-            label6.TabIndex = 6;
-            label6.Text = "Meat";
-            // 
-            // label7
-            // 
-            label7.Anchor = AnchorStyles.Left;
-            label7.AutoSize = true;
-            label7.Location = new Point(159, 347);
-            label7.Name = "label7";
-            label7.Size = new Size(35, 20);
-            label7.TabIndex = 8;
-            label7.Text = "Egg";
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Anchor = AnchorStyles.Left;
-            pictureBox1.Image = Properties.Resources.milk1;
-            pictureBox1.Location = new Point(217, 18);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(105, 107);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 9;
-            pictureBox1.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            pictureBox3.Anchor = AnchorStyles.Left;
-            pictureBox3.Image = Properties.Resources.egg;
-            pictureBox3.Location = new Point(217, 308);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(105, 99);
-            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox3.TabIndex = 11;
-            pictureBox3.TabStop = false;
-            // 
-            // label8
-            // 
-            label8.Anchor = AnchorStyles.None;
-            label8.AutoSize = true;
-            label8.Location = new Point(359, 61);
-            label8.Name = "label8";
-            label8.Size = new Size(0, 20);
-            label8.TabIndex = 12;
-            // 
-            // label9
-            // 
-            label9.Anchor = AnchorStyles.None;
-            label9.AutoSize = true;
-            label9.Location = new Point(359, 204);
-            label9.Name = "label9";
-            label9.Size = new Size(0, 20);
-            label9.TabIndex = 13;
-            // 
-            // label10
-            // 
-            label10.Anchor = AnchorStyles.None;
-            label10.AutoSize = true;
-            label10.Location = new Point(359, 347);
-            label10.Name = "label10";
-            label10.Size = new Size(0, 20);
-            label10.TabIndex = 14;
             // 
             // panel2
             // 
@@ -510,6 +323,230 @@
             label4.TabIndex = 1;
             label4.Text = "Total: ";
             // 
+            // tabControl1
+            // 
+            tabControl1.Controls.Add(tabPage1);
+            tabControl1.Controls.Add(tabPage2);
+            tabControl1.Dock = DockStyle.Fill;
+            tabControl1.Location = new Point(395, 28);
+            tabControl1.Name = "tabControl1";
+            tabControl1.SelectedIndex = 0;
+            tabControl1.Size = new Size(387, 423);
+            tabControl1.TabIndex = 17;
+            // 
+            // tabPage1
+            // 
+            tabPage1.Controls.Add(tableLayoutPanel2);
+            tabPage1.Location = new Point(4, 29);
+            tabPage1.Name = "tabPage1";
+            tabPage1.Padding = new Padding(3);
+            tabPage1.Size = new Size(379, 390);
+            tabPage1.TabIndex = 0;
+            tabPage1.Text = "tabPage1";
+            tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel2
+            // 
+            tableLayoutPanel2.BackColor = SystemColors.ButtonHighlight;
+            tableLayoutPanel2.ColumnCount = 4;
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 39.4675941F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 15.6186628F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 28.0641174F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.8496246F));
+            tableLayoutPanel2.Controls.Add(pictureBox2, 2, 1);
+            tableLayoutPanel2.Controls.Add(circularProgressBar3, 0, 2);
+            tableLayoutPanel2.Controls.Add(circularProgressBar2, 0, 1);
+            tableLayoutPanel2.Controls.Add(label5, 1, 0);
+            tableLayoutPanel2.Controls.Add(circularProgressBar1, 0, 0);
+            tableLayoutPanel2.Controls.Add(label6, 1, 1);
+            tableLayoutPanel2.Controls.Add(label7, 1, 2);
+            tableLayoutPanel2.Controls.Add(pictureBox1, 2, 0);
+            tableLayoutPanel2.Controls.Add(pictureBox3, 2, 2);
+            tableLayoutPanel2.Controls.Add(label8, 3, 0);
+            tableLayoutPanel2.Controls.Add(label9, 3, 1);
+            tableLayoutPanel2.Controls.Add(label10, 3, 2);
+            tableLayoutPanel2.Dock = DockStyle.Fill;
+            tableLayoutPanel2.Location = new Point(3, 3);
+            tableLayoutPanel2.Margin = new Padding(0);
+            tableLayoutPanel2.Name = "tableLayoutPanel2";
+            tableLayoutPanel2.RowCount = 3;
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 33.33482F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3348122F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 33.33037F));
+            tableLayoutPanel2.Size = new Size(373, 384);
+            tableLayoutPanel2.TabIndex = 10;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Anchor = AnchorStyles.Left;
+            pictureBox2.Image = Properties.Resources.meat;
+            pictureBox2.Location = new Point(208, 141);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(98, 102);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 10;
+            pictureBox2.TabStop = false;
+            // 
+            // circularProgressBar3
+            // 
+            circularProgressBar3.Anchor = AnchorStyles.None;
+            circularProgressBar3.BackColor = SystemColors.Control;
+            circularProgressBar3.BarColor1 = Color.Teal;
+            circularProgressBar3.BarColor2 = Color.MintCream;
+            circularProgressBar3.BarWidth = 14F;
+            circularProgressBar3.Font = new Font("Segoe UI", 15F);
+            circularProgressBar3.ForeColor = Color.DimGray;
+            circularProgressBar3.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
+            circularProgressBar3.LineColor = Color.DimGray;
+            circularProgressBar3.LineWidth = 1;
+            circularProgressBar3.Location = new Point(11, 259);
+            circularProgressBar3.Maximum = 100L;
+            circularProgressBar3.MinimumSize = new Size(100, 100);
+            circularProgressBar3.Name = "circularProgressBar3";
+            circularProgressBar3.ProgressShape = CircularProgressBar._ProgressShape.Flat;
+            circularProgressBar3.Size = new Size(125, 125);
+            circularProgressBar3.TabIndex = 7;
+            circularProgressBar3.Text = "circularProgressBar3";
+            circularProgressBar3.TextMode = CircularProgressBar._TextMode.Percentage;
+            circularProgressBar3.Value = 57L;
+            // 
+            // circularProgressBar2
+            // 
+            circularProgressBar2.Anchor = AnchorStyles.None;
+            circularProgressBar2.BackColor = SystemColors.Control;
+            circularProgressBar2.BarColor1 = Color.Teal;
+            circularProgressBar2.BarColor2 = Color.PaleGoldenrod;
+            circularProgressBar2.BarWidth = 14F;
+            circularProgressBar2.Font = new Font("Segoe UI", 15F);
+            circularProgressBar2.ForeColor = Color.DimGray;
+            circularProgressBar2.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
+            circularProgressBar2.LineColor = Color.DimGray;
+            circularProgressBar2.LineWidth = 1;
+            circularProgressBar2.Location = new Point(11, 131);
+            circularProgressBar2.Maximum = 100L;
+            circularProgressBar2.MinimumSize = new Size(100, 100);
+            circularProgressBar2.Name = "circularProgressBar2";
+            circularProgressBar2.ProgressShape = CircularProgressBar._ProgressShape.Flat;
+            circularProgressBar2.Size = new Size(125, 125);
+            circularProgressBar2.TabIndex = 4;
+            circularProgressBar2.Text = "circularProgressBar2";
+            circularProgressBar2.TextMode = CircularProgressBar._TextMode.Percentage;
+            circularProgressBar2.Value = 57L;
+            // 
+            // label5
+            // 
+            label5.Anchor = AnchorStyles.Left;
+            label5.AutoSize = true;
+            label5.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label5.Location = new Point(150, 53);
+            label5.Name = "label5";
+            label5.Size = new Size(43, 22);
+            label5.TabIndex = 5;
+            label5.Text = "Milk";
+            // 
+            // circularProgressBar1
+            // 
+            circularProgressBar1.Anchor = AnchorStyles.None;
+            circularProgressBar1.BackColor = SystemColors.Control;
+            circularProgressBar1.BarColor1 = Color.DarkSlateGray;
+            circularProgressBar1.BarColor2 = Color.LightSkyBlue;
+            circularProgressBar1.BarWidth = 14F;
+            circularProgressBar1.Font = new Font("Segoe UI", 15F);
+            circularProgressBar1.ForeColor = Color.DimGray;
+            circularProgressBar1.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
+            circularProgressBar1.LineColor = Color.DimGray;
+            circularProgressBar1.LineWidth = 1;
+            circularProgressBar1.Location = new Point(11, 3);
+            circularProgressBar1.Maximum = 100L;
+            circularProgressBar1.MinimumSize = new Size(100, 100);
+            circularProgressBar1.Name = "circularProgressBar1";
+            circularProgressBar1.ProgressShape = CircularProgressBar._ProgressShape.Flat;
+            circularProgressBar1.Size = new Size(125, 125);
+            circularProgressBar1.TabIndex = 3;
+            circularProgressBar1.Text = "circularProgressBar1";
+            circularProgressBar1.TextMode = CircularProgressBar._TextMode.Percentage;
+            circularProgressBar1.Value = 57L;
+            // 
+            // label6
+            // 
+            label6.Anchor = AnchorStyles.Left;
+            label6.AutoSize = true;
+            label6.Font = new Font("Microsoft JhengHei UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label6.Location = new Point(150, 181);
+            label6.Name = "label6";
+            label6.Size = new Size(51, 22);
+            label6.TabIndex = 6;
+            label6.Text = "Meat";
+            // 
+            // label7
+            // 
+            label7.Anchor = AnchorStyles.Left;
+            label7.AutoSize = true;
+            label7.Location = new Point(150, 310);
+            label7.Name = "label7";
+            label7.Size = new Size(35, 20);
+            label7.TabIndex = 8;
+            label7.Text = "Egg";
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Anchor = AnchorStyles.Left;
+            pictureBox1.Image = Properties.Resources.milk1;
+            pictureBox1.Location = new Point(208, 10);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(98, 107);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 9;
+            pictureBox1.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Anchor = AnchorStyles.Left;
+            pictureBox3.Image = Properties.Resources.egg;
+            pictureBox3.Location = new Point(208, 270);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(98, 99);
+            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox3.TabIndex = 11;
+            pictureBox3.TabStop = false;
+            // 
+            // label8
+            // 
+            label8.Anchor = AnchorStyles.None;
+            label8.AutoSize = true;
+            label8.Location = new Point(341, 54);
+            label8.Name = "label8";
+            label8.Size = new Size(0, 20);
+            label8.TabIndex = 12;
+            // 
+            // label9
+            // 
+            label9.Anchor = AnchorStyles.None;
+            label9.AutoSize = true;
+            label9.Location = new Point(341, 182);
+            label9.Name = "label9";
+            label9.Size = new Size(0, 20);
+            label9.TabIndex = 13;
+            // 
+            // label10
+            // 
+            label10.Anchor = AnchorStyles.None;
+            label10.AutoSize = true;
+            label10.Location = new Point(341, 310);
+            label10.Name = "label10";
+            label10.Size = new Size(0, 20);
+            label10.TabIndex = 14;
+            // 
+            // tabPage2
+            // 
+            tabPage2.Location = new Point(4, 29);
+            tabPage2.Name = "tabPage2";
+            tabPage2.Padding = new Padding(3);
+            tabPage2.Size = new Size(379, 390);
+            tabPage2.TabIndex = 1;
+            tabPage2.Text = "tabPage2";
+            tabPage2.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(120F, 120F);
@@ -526,11 +563,6 @@
             SidePanel.ResumeLayout(false);
             SidePanel.PerformLayout();
             tableLayoutPanel1.ResumeLayout(false);
-            tableLayoutPanel2.ResumeLayout(false);
-            tableLayoutPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             panel1.ResumeLayout(false);
@@ -539,6 +571,13 @@
             panel3.PerformLayout();
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
+            tabControl1.ResumeLayout(false);
+            tabPage1.ResumeLayout(false);
+            tableLayoutPanel2.ResumeLayout(false);
+            tableLayoutPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ResumeLayout(false);
         }
 
@@ -578,5 +617,8 @@
         private Label label8;
         private Label label9;
         private Label label10;
+        private TabControl tabControl1;
+        private TabPage tabPage1;
+        private TabPage tabPage2;
     }
 }
