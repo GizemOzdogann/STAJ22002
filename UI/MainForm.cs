@@ -39,7 +39,6 @@ namespace FarmManager
                 BindAnimal(Animal);
 
             }
-
             else { MessageBox.Show("Please select animal type, gender, and age."); }
 
             ClearComboBoxes();
@@ -110,7 +109,6 @@ namespace FarmManager
                 if (item.LifeBar.Value == 0)
                 {
                     itemsToRemove.Add(item);
-                    //circularProgressBar3.Value = Math.Min(circularProgressBar3.Maximum, circularProgressBar3.Value++);
                     circularProgressBar2.Value+=2;
                     productService.AddProduct(new Meat());
                 }
@@ -122,8 +120,6 @@ namespace FarmManager
                     productService.AddProduct(product);
                     item.ProductionBar.Value = 0;
                 }
-
-                //label4.Text = $"Total: {productService.GetTotal()}";
                 
                 label8.Text = $"{productService.GetProductCount<Milk>()}";
                 label9.Text = $"{productService.GetProductCount<Meat>()}";
@@ -137,9 +133,7 @@ namespace FarmManager
                 flowLayoutPanel1.Controls.Remove(item);
                 Animal animal = AnimalFactory.ToAnimal(item.AnimalModel);
                 animalService.RemoveAnimal(animal);
-                
-            }
-            
+            }                
         }
         private void MainForm_Load(object sender, EventArgs e)
         {
@@ -152,31 +146,35 @@ namespace FarmManager
         private int count = 1;
         private void UpdateProgressBar(Animal index)
         {
-            if (progressValue < 100)
+            CircularProgressBar progressBar = null;
+
+            switch (index)
             {
-                switch (index)
+                case Cow:
+                case Sheep:
+                    progressBar = circularProgressBar1;
+                    break;
+                case Chicken:
+                    progressBar = circularProgressBar3;
+                    break;
+            }
+
+            if (progressBar != null)
+            {
+                if (progressBar.Value < 100)
                 {
-                    case Cow:
-                        circularProgressBar1.Value = progressValue++;
-                        break;
-                    case Sheep:
-                        circularProgressBar1.Value = progressValue++;
-                        break;
-                    case Chicken:
-                        circularProgressBar3.Value = progressValue++;
-                        break;
+                    progressBar.Value++;
                 }
-            }
-            else if (progressValue == 100) 
-            {
-                progressValue = 0;
+                else if (progressBar.Value == 100)
+                {
+                    progressBar.Value = 0;
+                    count++;
+                }
+
                 label4.Text = $"Total: {count}";
-                count++;
             }
-                //Thread.Sleep(500);
-                //progressValue++;
         }
-        
+
         private void InitializeTimer()
         {
             progressTimer.Interval = 1000;
