@@ -11,7 +11,7 @@ namespace FarmManager.Entities
 {
     public class Animal : IAnimal
     {
-        //public int Id { get; set; }
+        public int Id { get; set; }
         //public string? Gender { get; set; }
         //public int Age { get; set; }
         //public virtual int LifeSpan { get; } = 0;

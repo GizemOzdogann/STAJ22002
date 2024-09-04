@@ -1,4 +1,5 @@
-﻿using FarmManager.Entities;
+﻿using FarmManager.Data;
+using FarmManager.Entities;
 using FarmManager.Interfaces;
 using FarmManager.UI;
 using System;
@@ -9,31 +10,27 @@ namespace FarmManager.Services
 {
     public class AnimalService : IAnimalService
     {
-        private readonly Store _store;
+        private readonly FarmManagerContext _context;
 
-        public AnimalService(Store store)
+        public AnimalService(FarmManagerContext context)
         {
-            _store = store;
+            _context = context;
         }
 
         public void AddAnimal(Animal animal)
         {
-            _store.AddAnimal(animal);
+            _context.Animals.Add(animal);
+            _context.SaveChanges();
         }
 
         public void RemoveAnimal(Animal animal)
         {
-            _store.RemoveAnimal(animal);
+            _context.Animals.Remove(animal);
+            _context.SaveChanges();
         }
-
-        public int GetAnimalCountByType()
+        public List<Animal> GetAllAnimals()
         {
-            return _store.GetAnimalCountByType().Sum(p => p.Value);
-        }
-
-        public int GetAllAnimals()
-        {
-            return _store.GetAnimals().Count;
+            return _context.Animals.ToList();
         }
     }
 }

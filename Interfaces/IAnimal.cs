@@ -9,7 +9,7 @@ namespace FarmManager.Interfaces
 {
     public interface IAnimal
     {
-        //public int Id { get; set; }
+        public int Id { get; set; }
         //string? Gender { get; set; }
         //int Age { get; set; }
         //int LifeSpan { get; }

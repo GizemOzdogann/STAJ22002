@@ -22,11 +22,11 @@ namespace FarmManager.UI
         public void RemoveAnimal(Animal animal) => _animalList.Remove(animal);
         public List<Animal> GetAnimals() => _animalList;
 
-        public Dictionary<Type, int> GetAnimalCountByType()
-        {
-            return _animalList.GroupBy(p => p.GetType())
-                                    .ToDictionary(g => g.Key, g => g.Count());
-        }
+        //public Dictionary<Type, int> GetAnimalCountByType()
+        //{
+        //    return _animalList.GroupBy(p => p.GetType())
+        //                            .ToDictionary(g => g.Key, g => g.Count());
+        //}
 
         #endregion Animals
 

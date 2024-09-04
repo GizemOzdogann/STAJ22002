@@ -8,6 +8,7 @@ namespace FarmManager.Interfaces
 {
     public interface IProduct
     {
+        public int Id { get; set; }
         string? Name { get; set; }
         int Price { get; set; }
         public int Quantity { get; set; }

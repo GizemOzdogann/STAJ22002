@@ -11,7 +11,7 @@ namespace FarmManager.Interfaces
     {
         void AddAnimal(Animal animal);
         void RemoveAnimal(Animal animal);
-        int GetAllAnimals();
+        List<Animal> GetAllAnimals();
 
     }
 }
