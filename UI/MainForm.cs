@@ -39,7 +39,6 @@ namespace FarmManager
                 BindAnimal(Animal);
 
             }
-
             else { MessageBox.Show("Please select animal type, gender, and age."); }
 
             ClearComboBoxes();
