@@ -11,8 +11,8 @@ namespace FarmManager.Models
     public abstract class AnimalModelBase : IAnimal
     {
         //public int Id { get; set; }
-        //public string? Gender { get; set; }
-        //public int Age { get; set; }
+        public string? Gender { get; set; }
+        public int Age { get; set; }
         //public int LifeSpan { get; protected set; }
         public int Id { get; set; }
         public Image? AnimalImage { get; set; }

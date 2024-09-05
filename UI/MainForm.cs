@@ -32,11 +32,18 @@ namespace FarmManager
         {
             string? Animal = AnimalTypeComboBox.SelectedItem?.ToString();
             string? Gender = GenderPickComboBox.SelectedItem?.ToString();
-            string? Age = AgeComboBox.SelectedItem?.ToString();
-
-            if (!string.IsNullOrEmpty(Animal) && !string.IsNullOrEmpty(Gender) && !string.IsNullOrEmpty(Age))
+            //int? Age = (int?)AgeComboBox.SelectedItem;
+            string? selectedAgeString = AgeComboBox.SelectedItem as string;
+            int? Age = null;
+            if (!string.IsNullOrEmpty(selectedAgeString) && int.TryParse(selectedAgeString, out int parsedAge))
             {
-                BindAnimal(Animal);
+                Age = parsedAge;
+            }
+
+            if (!string.IsNullOrEmpty(Animal) && !string.IsNullOrEmpty(Gender) && Age.HasValue)
+            {
+                
+                BindAnimal(Animal, Gender, (int)Age);
 
             }
 
@@ -45,17 +52,21 @@ namespace FarmManager
             ClearComboBoxes();
         }
 
-        private void BindAnimal(string animalType)
+        private void BindAnimal(string animalType,string gender, int Age)
         {
             try
             {
                 Animal animal = AnimalFactory.GetFactory(animalType);
                 animalService.AddAnimal(animal);
+                animal.Gender = gender;
+                animal.Age = Age;
 
                 AnimalModelBase animalModel = AnimalFactory.GetModalFactory(animalType);
 
                 animalModel.ProductTick = animal.ProductTick;
                 animalModel.LifeTick = animal.LifeTick;
+                animalModel.Gender = animal.Gender;
+
                 
                 ListItem listItem = new(animalModel) { Size = new(175, 249) };
 

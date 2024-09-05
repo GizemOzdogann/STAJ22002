@@ -38,8 +38,10 @@ namespace FarmManager
                 })
                 .ConfigureServices((context, services) =>
                 {
+                    // ensure created
                     services.AddDbContext<FarmManagerContext>(options =>
-                        options.UseSqlServer(context.Configuration.GetConnectionString("FarmManagerDatabase")));
+                        options.UseSqlServer(context.Configuration.GetConnectionString("FarmManagerDatabase"))
+                        .EnableSensitiveDataLogging());
                 })
                 .UseServiceProviderFactory(new AutofacServiceProviderFactory())
                 .ConfigureContainer<ContainerBuilder>(builder =>
