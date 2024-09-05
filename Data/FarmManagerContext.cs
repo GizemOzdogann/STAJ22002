@@ -23,7 +23,6 @@ namespace FarmManager.Data
 
             modelBuilder.Entity<Product>()
                 .HasKey(p => p.Id);
-
         }
     }
 }

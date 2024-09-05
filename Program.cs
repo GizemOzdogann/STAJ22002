@@ -13,7 +13,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.SqlServer;
-
+using Microsoft.Extensions.Logging;
 
 
 namespace FarmManager
@@ -30,6 +30,11 @@ namespace FarmManager
                 .ConfigureAppConfiguration((context, config) =>
                 {
                     config.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+                })
+                .ConfigureLogging(logging => { 
+
+                    logging.ClearProviders();
+                    logging.AddConsole();
                 })
                 .ConfigureServices((context, services) =>
                 {
@@ -52,7 +57,6 @@ namespace FarmManager
 
         private static void ConfigureContainer(ContainerBuilder builder)
         {
-
             builder.RegisterType<MainForm>().AsSelf();
             builder.RegisterType<Store>().AsSelf().SingleInstance();
             builder.RegisterType<AnimalService>().As<IAnimalService>();
@@ -62,7 +66,5 @@ namespace FarmManager
                    .AsSelf()
                    .InstancePerLifetimeScope();
         }
-        
-
     }
 }
