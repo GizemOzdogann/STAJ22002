@@ -521,7 +521,7 @@
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "MainForm";
-            Text = "Main Page";
+            Text = "Farm Manager";
             Load += MainForm_Load;
             SidePanel.ResumeLayout(false);
             SidePanel.PerformLayout();

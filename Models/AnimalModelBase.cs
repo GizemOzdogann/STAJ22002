@@ -19,8 +19,8 @@ namespace FarmManager.Models
         public string? AnimalName { get; set; }
         public ProgressBar ProductionBar { get; set; } = new();
         public ProgressBar LifeBar { get; set; } = new();
-        public int lifeTick {get; set; }
-        public int productTick { get; set; }
+        public int LifeTick {get; set; }
+        public int ProductTick { get; set; }
         public abstract Product Production();
         public abstract Image LoadImage();
     }

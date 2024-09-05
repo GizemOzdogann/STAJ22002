@@ -54,9 +54,9 @@ namespace FarmManager
 
                 AnimalModelBase animalModel = AnimalFactory.GetModalFactory(animalType);
 
-                animalModel.productTick = animal.productTick;
-                animalModel.lifeTick = animal.lifeTick;
-                
+                animalModel.ProductTick = animal.ProductTick;
+                animalModel.LifeTick = animal.LifeTick;
+
                 ListItem listItem = new(animalModel) { Size = new(175, 249) };
 
                 BindData(animalModel, listItem);
@@ -106,25 +106,22 @@ namespace FarmManager
                 Animal animal = AnimalFactory.ToAnimal(item.AnimalModel);
                 Product product = ProductFactory.GetProductFactory(animal);
 
-                item.LifeBar.Value = Math.Max(0, item.LifeBar.Value - animal.lifeTick);
+                item.LifeBar.Value = Math.Max(0, item.LifeBar.Value - animal.LifeTick);
                 if (item.LifeBar.Value == 0)
                 {
                     itemsToRemove.Add(item);
-                    //circularProgressBar3.Value = Math.Min(circularProgressBar3.Maximum, circularProgressBar3.Value++);
-                    circularProgressBar2.Value+=2;
+                    circularProgressBar2.Value += 2;
                     productService.AddProduct(new Meat());
                 }
 
-                item.ProductionBar.Value = Math.Min(item.ProductionBar.Maximum, item.ProductionBar.Value + animal.productTick);
-                
+                item.ProductionBar.Value = Math.Min(item.ProductionBar.Maximum, item.ProductionBar.Value + animal.ProductTick);
+
                 if (item.ProductionBar.Value == 100)
                 {
                     productService.AddProduct(product);
                     item.ProductionBar.Value = 0;
                 }
 
-                //label4.Text = $"Total: {productService.GetTotal()}";
-                
                 label8.Text = $"{productService.GetProductCount<Milk>()}";
                 label9.Text = $"{productService.GetProductCount<Meat>()}";
                 label10.Text = $"{productService.GetProductCount<Egg>()}";
@@ -137,9 +134,7 @@ namespace FarmManager
                 flowLayoutPanel1.Controls.Remove(item);
                 Animal animal = AnimalFactory.ToAnimal(item.AnimalModel);
                 animalService.RemoveAnimal(animal);
-                
             }
-            
         }
         private void MainForm_Load(object sender, EventArgs e)
         {
@@ -148,35 +143,40 @@ namespace FarmManager
             circularProgressBar3.Value = 0;
         }
 
-        private int progressValue = 0;
+        private int cowProgressValue = 0;
+        private int sheepProgressValue = 0;
+        private int chickenProgressValue = 0;
         private int count = 1;
-        private void UpdateProgressBar(Animal index)
+        private void UpdateProgressBar(Animal animal)
         {
-            if (progressValue < 100)
+
+            if (animal is Cow || animal is Sheep)
             {
-                switch (index)
+                if(cowProgressValue < 100)
                 {
-                    case Cow:
-                        circularProgressBar1.Value = progressValue++;
-                        break;
-                    case Sheep:
-                        circularProgressBar1.Value = progressValue++;
-                        break;
-                    case Chicken:
-                        circularProgressBar3.Value = progressValue++;
-                        break;
+                    circularProgressBar1.Value = cowProgressValue++;
+                }
+                else
+                {
+                    cowProgressValue = 0;
+                    label4.Text = $"Total: {count}";
+                    count++;
                 }
             }
-            else if (progressValue == 100) 
+            else if (animal is Chicken)
             {
-                progressValue = 0;
-                label4.Text = $"Total: {count}";
-                count++;
+                if (chickenProgressValue < 100)
+                {
+                    circularProgressBar3.Value = chickenProgressValue++;
+                }
+                else
+                {
+                    chickenProgressValue = 0;
+                    label4.Text = $"Total: {count}";
+                    count++;
+                }
             }
-                //Thread.Sleep(500);
-                //progressValue++;
         }
-        
         private void InitializeTimer()
         {
             progressTimer.Interval = 1000;

@@ -13,8 +13,8 @@ namespace FarmManager.Interfaces
         //string? Gender { get; set; }
         //int Age { get; set; }
         //int LifeSpan { get; }
-        int lifeTick { get; set; }
-        int productTick { get; set; }
+        int LifeTick { get; set; }
+        int ProductTick { get; set; }
         
     }
     public enum Gender
