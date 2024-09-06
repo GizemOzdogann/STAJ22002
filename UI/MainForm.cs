@@ -151,13 +151,20 @@ namespace FarmManager
             circularProgressBar3.Value = 0;
         }
 
-        private int progressValue = 0;
+        private int cowProgressValue = 0;
+        private int sheepProgressValue = 0;
+        private int chickenProgressValue = 0;
         private int count = 1;
-        private void UpdateProgressBar(Animal index)
+        private void UpdateProgressBar(Animal animal)
         {
-            if (progressValue < 100)
+
+            if (animal is Cow || animal is Sheep)
             {
-                switch (index)
+                if(cowProgressValue < 100)
+                {
+                    circularProgressBar1.Value = cowProgressValue++;
+                }
+                else
                 {
                     case Cow:
                         circularProgressBar1.Value = progressValue++;
@@ -178,7 +185,6 @@ namespace FarmManager
                 count++;
             }
         }
-        
         private void InitializeTimer()
         {
             progressTimer.Interval = 1000;

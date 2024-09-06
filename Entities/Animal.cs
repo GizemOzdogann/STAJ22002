@@ -40,9 +40,8 @@ namespace FarmManager.Entities
     {
         public Sheep()
         {
-            Type = AnimalType.Sheep.ToString();
-            LifeTick= 2;
-            ProductTick = 20;
+            lifeTick= 2;
+            productTick = 20;
         }
     }
     public enum AnimalType
