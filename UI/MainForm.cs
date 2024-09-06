@@ -17,9 +17,9 @@ namespace FarmManager
 {
     public partial class MainForm : Form
     {
-        private readonly IAnimalService animalService;
-        private readonly IProductService productService;
-        public MainForm(IAnimalService animalService, IProductService productService)
+        private readonly AnimalService animalService;
+        private readonly ProductService productService;
+        public MainForm(AnimalService animalService, ProductService productService)
         {
             InitializeComponent();
             InitializeTimer();

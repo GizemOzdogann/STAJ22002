@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace FarmManager.Services
 {
-    internal class ProductService : IProductService
+    public class ProductService
     {
         public readonly Store _store;
 

@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 using FarmManager.Entities;
 
 namespace FarmManager.Interfaces
-{
+{ /// <summary>
+/// /////////might delete later
+/// </summary>
     public interface IProductService
     {
         void AddProduct(Product product);

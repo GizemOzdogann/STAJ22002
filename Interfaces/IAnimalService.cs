@@ -8,7 +8,9 @@ using FarmManager.Entities;
 namespace FarmManager.Interfaces
 {
     public interface IAnimalService
-    {
+    { /// <summary>
+/// /////////might delete later
+/// </summary>
         void AddAnimal(Animal animal);
         void RemoveAnimal(Animal animal);
         List<Animal> GetAllAnimals();
