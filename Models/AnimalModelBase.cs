@@ -10,7 +10,7 @@ namespace FarmManager.Models
 {
     public abstract class AnimalModelBase
     {
-        public string? Gender { get; set; }
+        public Gender? Gender { get; set; }
         public int Age { get; set; }
         public int Id { get; set; }
         public Image? AnimalImage { get; set; }

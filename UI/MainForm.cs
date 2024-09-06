@@ -6,11 +6,11 @@ using FarmManager.UI;
 using ManagerApp.Factories;
 using System.Reflection.Emit;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using Timer = System.Windows.Forms.Timer;
-using ProgressBar = System.Windows.Forms.ProgressBar;
-using MethodInvoker = System.Windows.Forms.MethodInvoker;
-using System.Reflection;
+//using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+//using Timer = System.Windows.Forms.Timer;
+//using ProgressBar = System.Windows.Forms.ProgressBar;
+//using MethodInvoker = System.Windows.Forms.MethodInvoker;
+//using System.Reflection;
 using FarmManager.Factories;
 
 namespace FarmManager
@@ -32,7 +32,8 @@ namespace FarmManager
         {
             if (AnimalTypeComboBox.SelectedItem is string animalTypeStr &&
                 Enum.TryParse<AnimalType>(animalTypeStr, out var animalType) &&
-                GenderPickComboBox.SelectedItem is string gender &&
+                GenderPickComboBox.SelectedItem is string genderPick &&
+                Enum.TryParse<Gender>(genderPick, out var gender) &&
                 AgeComboBox.SelectedItem is string ageStr &&
                 int.TryParse(ageStr, out var age))
             {
@@ -47,7 +48,7 @@ namespace FarmManager
         }
 
 
-        private void BindAnimal(AnimalType animalType,string gender, int Age)
+        private void BindAnimal(AnimalType animalType,Gender gender, int Age)
         {
             try
             {
@@ -139,7 +140,7 @@ namespace FarmManager
             {
                 flowLayoutPanel1.Controls.Remove(item);
                 Animal animal = AnimalFactory.ToAnimal(item.AnimalModel);
-                animalService.RemoveAnimal(animal);
+              _=  animalService.RemoveAnimal(animal);
             }
         }
 

@@ -406,7 +406,7 @@
             circularProgressBar3.ProgressShape = CircularProgressBar._ProgressShape.Flat;
             circularProgressBar3.Size = new Size(125, 125);
             circularProgressBar3.TabIndex = 7;
-            circularProgressBar3.Text = "circularProgressBar3";
+            circularProgressBar3.Text = null;
             circularProgressBar3.TextMode = CircularProgressBar._TextMode.Percentage;
             circularProgressBar3.Value = 57L;
             // 
@@ -429,7 +429,7 @@
             circularProgressBar2.ProgressShape = CircularProgressBar._ProgressShape.Flat;
             circularProgressBar2.Size = new Size(125, 125);
             circularProgressBar2.TabIndex = 4;
-            circularProgressBar2.Text = "circularProgressBar2";
+            circularProgressBar2.Text = null;
             circularProgressBar2.TextMode = CircularProgressBar._TextMode.Percentage;
             circularProgressBar2.Value = 57L;
             // 
@@ -463,7 +463,7 @@
             circularProgressBar1.ProgressShape = CircularProgressBar._ProgressShape.Flat;
             circularProgressBar1.Size = new Size(125, 125);
             circularProgressBar1.TabIndex = 3;
-            circularProgressBar1.Text = "circularProgressBar1";
+            circularProgressBar1.Text = null;
             circularProgressBar1.TextMode = CircularProgressBar._TextMode.Percentage;
             circularProgressBar1.Value = 57L;
             // 
