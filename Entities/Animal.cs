@@ -14,20 +14,8 @@ namespace FarmManager.Entities
         public int Id { get; set; }
         public string? Gender { get; set; }
         public int Age { get; set; }
-
-        //public virtual int LifeSpan { get; } = 0;
         public virtual int LifeTick { get; set; } = 1;
         public virtual int ProductTick { get; set; } = 1;
-        //public virtual Product? Product { get; set; }
-        public Animal() { }
-
-
-        /// 
-       
-        //public Animal(Product product)
-        //{
-        //    Product = product;
-        //}
     }
     public class Cow : Animal
     {

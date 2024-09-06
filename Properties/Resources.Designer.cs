@@ -99,5 +99,15 @@ namespace FarmManager.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Custom Made
+        /// </summary>
+        internal static System.Drawing.Bitmap defaultImage {
+            get {
+                object obj = ResourceManager.GetObject("milk1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

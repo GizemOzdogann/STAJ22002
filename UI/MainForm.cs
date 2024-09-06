@@ -63,11 +63,11 @@ namespace FarmManager
 
                 AnimalModelBase animalModel = AnimalFactory.GetModalFactory(animalType);
 
-                animalModel.ProductTick = animal.ProductTick;
-                animalModel.LifeTick = animal.LifeTick;
+                //animalModel.ProductTick = animal.ProductTick;
+                //animalModel.LifeTick = animal.LifeTick;
                 animalModel.Gender = animal.Gender;
+                animalModel.Age = Age;
 
-                
                 ListItem listItem = new(animalModel) { Size = new(175, 249) };
 
                 BindData(animalModel, listItem);
@@ -110,32 +110,29 @@ namespace FarmManager
         {
             int itemCount = flowLayoutPanel1.Controls.Count;
             label3.Text = $"Total: {itemCount}";
-            List<ListItem> itemsToRemove = [];
 
-            foreach (ListItem item in flowLayoutPanel1.Controls)
+            List<ListItem> itemsToRemove = new();
+
+            foreach (ListItem item in flowLayoutPanel1.Controls.OfType<ListItem>())
             {
                 Animal animal = AnimalFactory.ToAnimal(item.AnimalModel);
                 Product product = ProductFactory.GetProductFactory(animal);
 
-                item.LifeBar.Value = Math.Max(0, item.LifeBar.Value - animal.LifeTick);
+                item.LifeBar.Value = Math.Max(0, Math.Min(item.LifeBar.Value - animal.LifeTick, item.LifeBar.Maximum));
                 if (item.LifeBar.Value == 0)
                 {
                     itemsToRemove.Add(item);
-                    //circularProgressBar3.Value = Math.Min(circularProgressBar3.Maximum, circularProgressBar3.Value++);
-                    circularProgressBar2.Value+=2;
+                    circularProgressBar2.Value = Math.Min(circularProgressBar2.Value + 2, circularProgressBar2.Maximum);
                     productService.AddProduct(new Meat());
                 }
 
-                item.ProductionBar.Value = Math.Min(item.ProductionBar.Maximum, item.ProductionBar.Value + animal.ProductTick);
-                
-                if (item.ProductionBar.Value == 100)
+                item.ProductionBar.Value = Math.Max(0, Math.Min(item.ProductionBar.Value + animal.ProductTick, item.ProductionBar.Maximum));
+                if (item.ProductionBar.Value == item.ProductionBar.Maximum)
                 {
                     productService.AddProduct(product);
                     item.ProductionBar.Value = 0;
                 }
 
-                //label4.Text = $"Total: {productService.GetTotal()}";
-                
                 label8.Text = $"{productService.GetProductCount<Milk>()}";
                 label9.Text = $"{productService.GetProductCount<Meat>()}";
                 label10.Text = $"{productService.GetProductCount<Egg>()}";
@@ -148,10 +145,9 @@ namespace FarmManager
                 flowLayoutPanel1.Controls.Remove(item);
                 Animal animal = AnimalFactory.ToAnimal(item.AnimalModel);
                 animalService.RemoveAnimal(animal);
-                
             }
-            
         }
+
         private void MainForm_Load(object sender, EventArgs e)
         {
             circularProgressBar1.Value = 0;
@@ -178,14 +174,13 @@ namespace FarmManager
                         break;
                 }
             }
+
             else if (progressValue == 100) 
             {
                 progressValue = 0;
                 label4.Text = $"Total: {count}";
                 count++;
             }
-                //Thread.Sleep(500);
-                //progressValue++;
         }
         
         private void InitializeTimer()

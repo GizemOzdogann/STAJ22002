@@ -18,11 +18,18 @@ namespace FarmManager.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<Animal>()
-                .HasKey(a => a.Id);
+            //modelBuilder.Entity<Animal>().ToTable("Animals");
+            modelBuilder.Entity<Product>().ToTable("Products");
 
-            modelBuilder.Entity<Product>()
-                .HasKey(p => p.Id);
+            modelBuilder.Entity<Animal>(entity =>
+            {
+                entity.ToTable("Animals");
+                entity.HasKey(e => e.Id); // Primary key configuration
+                entity.Property(e => e.Gender).IsRequired(false); // Nullable or required
+                entity.Property(e => e.Age).IsRequired();
+                entity.Property(e => e.LifeTick).IsRequired();
+                entity.Property(e => e.ProductTick).IsRequired();
+            });
         }
     }
 }
