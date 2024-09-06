@@ -12,6 +12,7 @@ namespace FarmManager.Entities
     public class Animal : IAnimal
     {
         public int Id { get; set; }
+        public virtual string Type { get; set; } = " ";
         public string? Gender { get; set; }
         public int Age { get; set; }
         public virtual int LifeTick { get; set; } = 1;
@@ -21,6 +22,7 @@ namespace FarmManager.Entities
     {
         public Cow()
         {
+            Type = AnimalType.Cow.ToString();
             LifeTick = 1;
             ProductTick = 19;
         }
@@ -29,6 +31,7 @@ namespace FarmManager.Entities
     {
         public Chicken()
         {
+            Type = AnimalType.Chicken.ToString();
             LifeTick = 2;
             ProductTick = 25;
         }
@@ -37,6 +40,7 @@ namespace FarmManager.Entities
     {
         public Sheep()
         {
+            Type = AnimalType.Sheep.ToString();
             LifeTick= 2;
             ProductTick = 20;
         }

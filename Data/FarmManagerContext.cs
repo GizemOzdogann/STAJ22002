@@ -18,7 +18,6 @@ namespace FarmManager.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            //modelBuilder.Entity<Animal>().ToTable("Animals");
             modelBuilder.Entity<Product>().ToTable("Products");
 
             modelBuilder.Entity<Animal>(entity =>

@@ -55,6 +55,7 @@ namespace FarmManager
                 animal.Gender = gender;
                 animal.Age = Age;
                 animalService.AddAnimal(animal);
+
                 AnimalModelBase animalModel = AnimalFactory.GetModalFactory(animalType);
 
                 animalModel.ProductTick = animal.ProductTick;
