@@ -391,8 +391,8 @@
             // 
             circularProgressBar3.Anchor = AnchorStyles.None;
             circularProgressBar3.BackColor = SystemColors.Control;
-            circularProgressBar3.BarColor1 = Color.Teal;
-            circularProgressBar3.BarColor2 = Color.MintCream;
+            circularProgressBar3.BarColor1 = Color.SteelBlue;
+            circularProgressBar3.BarColor2 = Color.Aquamarine;
             circularProgressBar3.BarWidth = 14F;
             circularProgressBar3.Font = new Font("Segoe UI", 15F);
             circularProgressBar3.ForeColor = Color.DimGray;
@@ -414,8 +414,8 @@
             // 
             circularProgressBar2.Anchor = AnchorStyles.None;
             circularProgressBar2.BackColor = SystemColors.Control;
-            circularProgressBar2.BarColor1 = Color.Teal;
-            circularProgressBar2.BarColor2 = Color.PaleGoldenrod;
+            circularProgressBar2.BarColor1 = Color.SteelBlue;
+            circularProgressBar2.BarColor2 = Color.Aquamarine;
             circularProgressBar2.BarWidth = 14F;
             circularProgressBar2.Font = new Font("Segoe UI", 15F);
             circularProgressBar2.ForeColor = Color.DimGray;
@@ -448,8 +448,8 @@
             // 
             circularProgressBar1.Anchor = AnchorStyles.None;
             circularProgressBar1.BackColor = SystemColors.Control;
-            circularProgressBar1.BarColor1 = Color.DarkSlateGray;
-            circularProgressBar1.BarColor2 = Color.LightSkyBlue;
+            circularProgressBar1.BarColor1 = Color.SteelBlue;
+            circularProgressBar1.BarColor2 = Color.Turquoise;
             circularProgressBar1.BarWidth = 14F;
             circularProgressBar1.Font = new Font("Segoe UI", 15F);
             circularProgressBar1.ForeColor = Color.DimGray;

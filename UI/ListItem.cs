@@ -18,8 +18,17 @@ namespace FarmManager.UI
         {
             InitializeComponent();
             AnimalModel = animalModel;
-            pictureBox.Image = animalModel.AnimalImage;
+
+            if (animalModel.AnimalImage != null)
+            {
+                pictureBox.Image = animalModel.AnimalImage;
+            }
+            else
+            {
+                pictureBox.Image = Properties.Resources.defaultImage;
+            }
             label1.Text = animalModel.AnimalName ?? "Unknown";
+
             LifeBar.Value = animalModel.LifeBar.Value;
             ProductionBar.Value = animalModel.ProductionBar.Value;
         }

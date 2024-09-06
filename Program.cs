@@ -38,7 +38,7 @@ namespace FarmManager
                 })
                 .ConfigureServices((context, services) =>
                 {
-                    // ensure created
+                    
                     services.AddDbContext<FarmManagerContext>(options =>
                         options.UseSqlServer(context.Configuration.GetConnectionString("FarmManagerDatabase"))
                         .EnableSensitiveDataLogging());
@@ -52,6 +52,11 @@ namespace FarmManager
 
             using (var scope = host.Services.CreateScope())
             {
+                // ensure created
+                var context = scope.ServiceProvider.GetRequiredService<FarmManagerContext>();
+                context.Database.EnsureCreated();
+                context.Database.Migrate();
+
                 var mainForm = scope.ServiceProvider.GetRequiredService<MainForm>();
                 Application.Run(mainForm);
             }
