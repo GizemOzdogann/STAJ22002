@@ -11,7 +11,7 @@ namespace FarmManager.Models
     {
         public SheepModel() 
         { 
-            AnimalName = nameof(AnimalNames.Sheep);
+            AnimalName = nameof(AnimalType.Sheep);
             AnimalImage = LoadImage();
 
             LifeBar.Minimum = 0;

@@ -13,7 +13,7 @@ namespace FarmManager.Models
     {
         public CowModel() 
         { 
-            AnimalName = Convert.ToString(AnimalNames.Cow);
+            AnimalName = Convert.ToString(AnimalType.Cow);
             AnimalImage = LoadImage();
 
             LifeBar.Minimum = 0;

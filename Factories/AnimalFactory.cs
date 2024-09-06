@@ -10,24 +10,24 @@ namespace ManagerApp.Factories
 {
     public abstract class AnimalFactory
     {
-        public static AnimalModelBase GetModalFactory(string animalType)
+        public static AnimalModelBase GetModalFactory(AnimalType animalType)
         {
             return animalType switch
             {
-                "Cow" => new CowModel(),
-                "Chicken" => new ChickenModel(),
-                "Sheep" => new SheepModel(),
+                AnimalType.Cow => new CowModel(),
+                AnimalType.Chicken => new ChickenModel(),
+                AnimalType.Sheep => new SheepModel(),
                 _ => throw new ArgumentException("Invalid animal type", nameof(animalType))
             };
         }
 
-        public static Animal GetFactory(string animalType) 
+        public static Animal GetFactory(AnimalType animalType) 
         {
             return animalType switch
             {
-                "Cow" => new Cow(),
-                "Chicken" => new Chicken(),
-                "Sheep" => new Sheep(),
+                AnimalType.Cow => new Cow(),
+                AnimalType.Chicken => new Chicken(),
+                AnimalType.Sheep => new Sheep(),
                 _ => throw new ArgumentException("Invalid animal type", nameof(animalType))
             };
         }

@@ -41,7 +41,7 @@ namespace FarmManager.Entities
             ProductTick = 20;
         }
     }
-    public enum AnimalNames
+    public enum AnimalType
     {
         Cow,
         Chicken,

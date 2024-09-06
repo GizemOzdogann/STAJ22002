@@ -30,41 +30,35 @@ namespace FarmManager
 
         private void AddButton_Click(object sender, EventArgs e)
         {
-            string? Animal = AnimalTypeComboBox.SelectedItem?.ToString();
-            string? Gender = GenderPickComboBox.SelectedItem?.ToString();
-            //int? Age = (int?)AgeComboBox.SelectedItem;
-            string? selectedAgeString = AgeComboBox.SelectedItem as string;
-            int? Age = null;
-            if (!string.IsNullOrEmpty(selectedAgeString) && int.TryParse(selectedAgeString, out int parsedAge))
+            if (AnimalTypeComboBox.SelectedItem is string animalTypeStr &&
+                Enum.TryParse<AnimalType>(animalTypeStr, out var animalType) &&
+                GenderPickComboBox.SelectedItem is string gender &&
+                AgeComboBox.SelectedItem is string ageStr &&
+                int.TryParse(ageStr, out var age))
             {
-                Age = parsedAge;
+                BindAnimal(animalType, gender, age);
             }
-
-            if (!string.IsNullOrEmpty(Animal) && !string.IsNullOrEmpty(Gender) && Age.HasValue)
+            else
             {
-                
-                BindAnimal(Animal, Gender, (int)Age);
-
+                MessageBox.Show("Please select a valid animal type, gender, and age.");
             }
-
-            else { MessageBox.Show("Please select animal type, gender, and age."); }
 
             ClearComboBoxes();
         }
 
-        private void BindAnimal(string animalType,string gender, int Age)
+
+        private void BindAnimal(AnimalType animalType,string gender, int Age)
         {
             try
             {
                 Animal animal = AnimalFactory.GetFactory(animalType);
-                animalService.AddAnimal(animal);
                 animal.Gender = gender;
                 animal.Age = Age;
-
+                animalService.AddAnimal(animal);
                 AnimalModelBase animalModel = AnimalFactory.GetModalFactory(animalType);
 
-                //animalModel.ProductTick = animal.ProductTick;
-                //animalModel.LifeTick = animal.LifeTick;
+                animalModel.ProductTick = animal.ProductTick;
+                animalModel.LifeTick = animal.LifeTick;
                 animalModel.Gender = animal.Gender;
                 animalModel.Age = Age;
 
@@ -111,7 +105,7 @@ namespace FarmManager
             int itemCount = flowLayoutPanel1.Controls.Count;
             label3.Text = $"Total: {itemCount}";
 
-            List<ListItem> itemsToRemove = new();
+            List<ListItem> itemsToRemove = [];
 
             foreach (ListItem item in flowLayoutPanel1.Controls.OfType<ListItem>())
             {
