@@ -66,8 +66,8 @@ namespace FarmManager
         {
             builder.RegisterType<MainForm>().AsSelf();
             builder.RegisterType<Store>().AsSelf().SingleInstance();
-            builder.RegisterType<AnimalService>().As<IAnimalService>();
-            builder.RegisterType<ProductService>().As<IProductService>();
+            builder.RegisterType<AnimalService>().AsSelf();
+            builder.RegisterType<ProductService>().AsSelf();
 
             builder.RegisterType<FarmManagerContext>()
                    .AsSelf()

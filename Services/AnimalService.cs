@@ -2,13 +2,14 @@
 using FarmManager.Entities;
 using FarmManager.Interfaces;
 using FarmManager.UI;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace FarmManager.Services
 {
-    public class AnimalService : IAnimalService
+    public class AnimalService
     {
         private readonly FarmManagerContext _context;
 
@@ -17,20 +18,20 @@ namespace FarmManager.Services
             _context = context;
         }
 
-        public void AddAnimal(Animal animal)
+        public async Task AddAnimal(Animal animal)
         {
-            _context.Animals.Add(animal);
-            _context.SaveChanges();
+            await _context.Animals.AddAsync(animal);
+            await _context.SaveChangesAsync();
         }
 
-        public void RemoveAnimal(Animal animal)
+        public async Task RemoveAnimal(Animal animal)
         {
             _context.Animals.Remove(animal);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
         }
-        public List<Animal> GetAllAnimals()
+        public async Task<List<Animal>> GetAllAnimals()
         {
-            return _context.Animals.ToList();
+            return await _context.Animals.ToListAsync();
         }
     }
 }

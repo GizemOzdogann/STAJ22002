@@ -17,9 +17,9 @@ namespace FarmManager
 {
     public partial class MainForm : Form
     {
-        private readonly IAnimalService animalService;
-        private readonly IProductService productService;
-        public MainForm(IAnimalService animalService, IProductService productService)
+        private readonly AnimalService animalService;
+        private readonly ProductService productService;
+        public MainForm(AnimalService animalService, ProductService productService)
         {
             InitializeComponent();
             InitializeTimer();
@@ -54,7 +54,7 @@ namespace FarmManager
                 Animal animal = AnimalFactory.GetFactory(animalType);
                 animal.Gender = gender;
                 animal.Age = Age;
-                animalService.AddAnimal(animal);
+                Task task = animalService.AddAnimal(animal);
 
                 AnimalModelBase animalModel = AnimalFactory.GetModalFactory(animalType);
 
